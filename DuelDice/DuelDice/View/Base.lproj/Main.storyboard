@@ -35,20 +35,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu1-W0-66Q">
-                                <rect key="frame" x="128" y="797" width="158" height="31"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-3b-dxX" customClass="GIDSignInButton">
+                                <rect key="frame" x="148" y="712" width="119" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
-                                    <segue destination="IZ3-cn-umQ" kind="show" id="b5Y-Mv-8jB"/>
+                                    <action selector="signInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTz-uE-IcR"/>
                                 </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="rdj-aF-DEZ"/>
+                    <connections>
+                        <outlet property="signInButton" destination="Z9G-3b-dxX" id="Ejd-WW-SD9"/>
+                        <outlet property="testLabel" destination="b3W-Dp-355" id="sra-M4-gf5"/>
+                        <segue destination="IZ3-cn-umQ" kind="show" identifier="ShowClientDetailSegue" id="GMX-Pg-hw2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

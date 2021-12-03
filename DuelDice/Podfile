@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DuelDice' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for DuelDice
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'GoogleSignIn'
+  target 'DuelDiceTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'DuelDiceUITests' do
+    # Pods for testing
+  end
+
+end
