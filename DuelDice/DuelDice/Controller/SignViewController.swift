@@ -14,30 +14,51 @@ import FBSDKLoginKit
 class SignViewController: UIViewController {
     static let showClientSegueIdentifier = "ShowClientDetailSegue"
     
-    @IBOutlet var googleSignInButton: GIDSignInButton!
+//    @IBOutlet var googleSignInButton: GIDSignInButton!
+//    @IBOutlet var emailSignInButton: UIButton!
     @IBOutlet var signInStackView: UIStackView!
     
-    @IBOutlet var emailSignInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let googleSignInButton = GIDSignInButton()
+        let emailSignInButton = UIButton()
         let facebookSignInButton = FBLoginButton()
-        signInStackView.addArrangedSubview(facebookSignInButton)
-        facebookSignInButton.delegate = self
         
-        facebookSignInButton.center = signInStackView.center
+        signInStackView.addArrangedSubview(googleSignInButton)
+        signInStackView.addArrangedSubview(emailSignInButton)
+        signInStackView.addArrangedSubview(facebookSignInButton)
+        
+        signInStackView.spacing = 10
+        
+        googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        googleSignInButton.addTarget(self, action: #selector(googleSignInButtonTabbed), for: .touchUpInside)
+        googleSignInButton.heightAnchor.constraint(equalToConstant: 425).isActive = true
+        googleSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        
+        emailSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        emailSignInButton.addTarget(self, action: #selector(emailSignInButtonTabbed), for: .touchUpInside)
+        emailSignInButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        emailSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        emailSignInButton.backgroundColor = .orange
+        emailSignInButton.layer.cornerRadius = 2
+        emailSignInButton.setTitle("Sign In with Email", for: .normal)
+        emailSignInButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 16)
+        emailSignInButton.setTitleColor(.white, for: .normal)
+        
+        facebookSignInButton.delegate = self
+//        facebookSignInButton.center = signInStackView.center
         facebookSignInButton.translatesAutoresizingMaskIntoConstraints = false
         facebookSignInButton.heightAnchor.constraint(equalToConstant: 425).isActive = true
         facebookSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
-        facebookSignInButton.topAnchor.constraint(equalTo: emailSignInButton.bottomAnchor, constant: 0).isActive = true
-        facebookSignInButton.bottomAnchor.constraint(equalTo: signInStackView.bottomAnchor, constant: 0).isActive = true
+//        facebookSignInButton.topAnchor.constraint(equalTo: emailSignInButton.bottomAnchor, constant: 0).isActive = true
+//        facebookSignInButton.bottomAnchor.constraint(equalTo: signInStackView.bottomAnchor, constant: 0).isActive = true
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
 //        hasPreviousSignIn()
-        emailSignInButton.setTitle("Email Sign-In", for: .normal)
-        emailSignInButton.setTitleColor(UIColor.black, for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,7 +135,8 @@ extension SignViewController: LoginButtonDelegate {
 extension SignViewController {
     
 
-    @IBAction func googleSignInButtonTabbed(_ sender: Any) {
+//    @IBAction func googleSignInButtonTabbed(_ sender: Any) {
+    @objc func googleSignInButtonTabbed(_ sender: UIButton!) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
         let config = GIDConfiguration(clientID: clientID)
@@ -137,7 +159,8 @@ extension SignViewController {
             firebaseSignIn(with: credential, sender)
         }
     }
-    @IBAction func emailSignInButtonTabbed(_ sender: Any) {
+//    @IBAction func emailSignInButtonTabbed(_ sender: Any) {
+    @objc func emailSignInButtonTabbed(_ sender: UIButton!) {
         let email = "wkdlfflxh@naver.com"
         let password = "asdf1234"
 
