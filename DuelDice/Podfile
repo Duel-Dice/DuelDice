@@ -9,6 +9,7 @@ target 'DuelDice' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'GoogleSignIn'
+  pod 'FBSDKLoginKit'
   target 'DuelDiceTests' do
     inherit! :search_paths
     # Pods for testing

@@ -16,41 +16,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wN-pY-Hhe">
-                                <rect key="frame" x="159" y="303" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzH-Qh-pPd">
-                                <rect key="frame" x="159" y="358" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DuelDice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3W-Dp-355">
-                                <rect key="frame" x="114" y="152" width="187" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DuelDice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3W-Dp-355">
+                                <rect key="frame" x="0.0" y="88" width="414" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-3b-dxX" customClass="GIDSignInButton">
-                                <rect key="frame" x="148" y="712" width="119" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <action selector="signInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTz-uE-IcR"/>
-                                </connections>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-aS-pIF">
+                                <rect key="frame" x="0.0" y="195.5" width="414" height="666.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-3b-dxX" userLabel="GoogleSignInButton" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="220.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <action selector="googleSignInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWX-vP-hh6"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-sp-Aqd" customClass="UIButton">
+                                        <rect key="frame" x="182" y="221.5" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <action selector="emailSignInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebv-r3-JlI"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ivg-cF-sga">
+                                        <rect key="frame" x="87" y="272.5" width="240" height="394"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w3z-aS-pIF" secondAttribute="bottom" id="62e-YH-mwf"/>
+                            <constraint firstItem="w3z-aS-pIF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="REe-nf-orf"/>
+                            <constraint firstItem="b3W-Dp-355" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eN2-BV-RAY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b3W-Dp-355" secondAttribute="trailing" id="hwV-Sh-bZH"/>
+                            <constraint firstItem="w3z-aS-pIF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kqI-8T-gy8"/>
+                            <constraint firstItem="w3z-aS-pIF" firstAttribute="top" secondItem="b3W-Dp-355" secondAttribute="bottom" constant="50" id="vAd-vp-1hc"/>
+                            <constraint firstItem="b3W-Dp-355" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z9S-tk-NEC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rdj-aF-DEZ"/>
                     <connections>
-                        <outlet property="signInButton" destination="Z9G-3b-dxX" id="Ejd-WW-SD9"/>
-                        <outlet property="testLabel" destination="b3W-Dp-355" id="sra-M4-gf5"/>
+                        <outlet property="emailSignInButton" destination="YAQ-sp-Aqd" id="5ze-Ax-kdV"/>
+                        <outlet property="googleSignInButton" destination="Z9G-3b-dxX" id="cRN-zr-bJR"/>
+                        <outlet property="signInStackView" destination="w3z-aS-pIF" id="b7W-pC-mqs"/>
                         <segue destination="IZ3-cn-umQ" kind="show" identifier="ShowClientDetailSegue" id="GMX-Pg-hw2"/>
                     </connections>
                 </viewController>
