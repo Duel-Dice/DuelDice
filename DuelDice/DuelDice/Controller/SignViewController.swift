@@ -12,20 +12,25 @@ import GoogleSignIn
 import FBSDKLoginKit
 
 class SignViewController: UIViewController {
-
-    
     static let showClientSegueIdentifier = "ShowClientDetailSegue"
     
     @IBOutlet var googleSignInButton: GIDSignInButton!
-    @IBOutlet var emailSignInButton: UIButton!
     @IBOutlet var signInStackView: UIStackView!
+    
+    @IBOutlet var emailSignInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let facebookSignInButton = FBLoginButton()
+        signInStackView.addArrangedSubview(facebookSignInButton)
         facebookSignInButton.delegate = self
+        
         facebookSignInButton.center = signInStackView.center
-        signInStackView.addSubview(facebookSignInButton)
+        facebookSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        facebookSignInButton.heightAnchor.constraint(equalToConstant: 425).isActive = true
+        facebookSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        facebookSignInButton.topAnchor.constraint(equalTo: emailSignInButton.bottomAnchor, constant: 0).isActive = true
+        facebookSignInButton.bottomAnchor.constraint(equalTo: signInStackView.bottomAnchor, constant: 0).isActive = true
         
     }
     
@@ -167,9 +172,7 @@ extension SignViewController {
             }
         }
     }
-    
 }
-
 
 // Anonymous Signin
 //

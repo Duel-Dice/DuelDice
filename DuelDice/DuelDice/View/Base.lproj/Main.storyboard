@@ -16,32 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DuelDice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3W-Dp-355">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DuelDice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3W-Dp-355">
                                 <rect key="frame" x="0.0" y="88" width="414" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-aS-pIF">
-                                <rect key="frame" x="0.0" y="195.5" width="414" height="666.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-aS-pIF">
+                                <rect key="frame" x="50" y="651" width="314" height="201"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-3b-dxX" userLabel="GoogleSignInButton" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="220.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-3b-dxX" userLabel="GoogleSignInButton" customClass="GIDSignInButton">
+                                        <rect key="frame" x="7" y="0.0" width="300" height="100"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <action selector="googleSignInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWX-vP-hh6"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-sp-Aqd" customClass="UIButton">
-                                        <rect key="frame" x="182" y="221.5" width="50" height="50"/>
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-sp-Aqd">
+                                        <rect key="frame" x="7" y="101" width="300" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0S-0k-2cz">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Email SignIn"/>
+                                                <connections>
+                                                    <action selector="emailSignInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OVt-WQ-fAR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <connections>
-                                            <action selector="emailSignInButtonTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebv-r3-JlI"/>
-                                        </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ivg-cF-sga">
-                                        <rect key="frame" x="87" y="272.5" width="240" height="394"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="W0S-0k-2cz" firstAttribute="leading" secondItem="YAQ-sp-Aqd" secondAttribute="leading" id="AFw-tV-xec"/>
+                                            <constraint firstAttribute="trailing" secondItem="W0S-0k-2cz" secondAttribute="trailing" id="QWD-h3-du3"/>
+                                            <constraint firstItem="W0S-0k-2cz" firstAttribute="top" secondItem="YAQ-sp-Aqd" secondAttribute="top" id="ed7-BH-Mq8"/>
+                                            <constraint firstAttribute="bottom" secondItem="W0S-0k-2cz" secondAttribute="bottom" id="huo-pA-e5L"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -49,18 +58,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w3z-aS-pIF" secondAttribute="bottom" id="62e-YH-mwf"/>
-                            <constraint firstItem="w3z-aS-pIF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="REe-nf-orf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w3z-aS-pIF" secondAttribute="bottom" constant="10" id="62e-YH-mwf"/>
+                            <constraint firstItem="w3z-aS-pIF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-50" id="REe-nf-orf"/>
                             <constraint firstItem="b3W-Dp-355" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eN2-BV-RAY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b3W-Dp-355" secondAttribute="trailing" id="hwV-Sh-bZH"/>
-                            <constraint firstItem="w3z-aS-pIF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kqI-8T-gy8"/>
-                            <constraint firstItem="w3z-aS-pIF" firstAttribute="top" secondItem="b3W-Dp-355" secondAttribute="bottom" constant="50" id="vAd-vp-1hc"/>
+                            <constraint firstItem="w3z-aS-pIF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="kqI-8T-gy8"/>
                             <constraint firstItem="b3W-Dp-355" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z9S-tk-NEC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rdj-aF-DEZ"/>
                     <connections>
-                        <outlet property="emailSignInButton" destination="YAQ-sp-Aqd" id="5ze-Ax-kdV"/>
+                        <outlet property="emailSignInButton" destination="W0S-0k-2cz" id="TmX-zL-hJ7"/>
                         <outlet property="googleSignInButton" destination="Z9G-3b-dxX" id="cRN-zr-bJR"/>
                         <outlet property="signInStackView" destination="w3z-aS-pIF" id="b7W-pC-mqs"/>
                         <segue destination="IZ3-cn-umQ" kind="show" identifier="ShowClientDetailSegue" id="GMX-Pg-hw2"/>
