@@ -16,15 +16,15 @@ class ClientViewController: UIViewController {
     @IBOutlet var delUserButton: UIButton!
     @IBOutlet var titleLabel: UILabel!
 
-    private var data: Int = 0
+    private var data: String?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = data.description
+//        titleLabel.text = data.description
     }
     
-    func configure(with data: Int, changeAction: @escaping ViewChangeAction) {
+    func configure(with data: String, changeAction: @escaping ViewChangeAction) {
         print(data)
         self.data = data
     }

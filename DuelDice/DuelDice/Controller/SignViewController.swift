@@ -17,6 +17,7 @@ class SignViewController: UIViewController {
 //    @IBOutlet var googleSignInButton: GIDSignInButton!
 //    @IBOutlet var emailSignInButton: UIButton!
     @IBOutlet var signInStackView: UIStackView!
+    var uid: String?
     
     
     override func viewDidLoad() {
@@ -24,10 +25,12 @@ class SignViewController: UIViewController {
         let googleSignInButton = GIDSignInButton()
         let emailSignInButton = UIButton()
         let facebookSignInButton = FBLoginButton()
+        let anonymousSignInButton = UIButton()
         
         signInStackView.addArrangedSubview(googleSignInButton)
         signInStackView.addArrangedSubview(emailSignInButton)
         signInStackView.addArrangedSubview(facebookSignInButton)
+        signInStackView.addArrangedSubview(anonymousSignInButton)
         
         signInStackView.spacing = 10
         
@@ -40,6 +43,7 @@ class SignViewController: UIViewController {
         emailSignInButton.addTarget(self, action: #selector(emailSignInButtonTabbed), for: .touchUpInside)
         emailSignInButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         emailSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        
         emailSignInButton.backgroundColor = .orange
         emailSignInButton.layer.cornerRadius = 2
         emailSignInButton.setTitle("Sign In with Email", for: .normal)
@@ -51,8 +55,19 @@ class SignViewController: UIViewController {
         facebookSignInButton.translatesAutoresizingMaskIntoConstraints = false
         facebookSignInButton.heightAnchor.constraint(equalToConstant: 425).isActive = true
         facebookSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
-//        facebookSignInButton.topAnchor.constraint(equalTo: emailSignInButton.bottomAnchor, constant: 0).isActive = true
-//        facebookSignInButton.bottomAnchor.constraint(equalTo: signInStackView.bottomAnchor, constant: 0).isActive = true
+        //        facebookSignInButton.topAnchor.constraint(equalTo: emailSignInButton.bottomAnchor, constant: 0).isActive = true
+        //        facebookSignInButton.bottomAnchor.constraint(equalTo: signInStackView.bottomAnchor, constant: 0).isActive = true
+        
+        anonymousSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        anonymousSignInButton.addTarget(self, action: #selector(anonymousSignInButtonTabbed), for: .touchUpInside)
+        anonymousSignInButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        anonymousSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        
+        anonymousSignInButton.backgroundColor = .black
+        anonymousSignInButton.layer.cornerRadius = 2
+        anonymousSignInButton.setTitle("Sign In with Anonymous", for: .normal)
+        anonymousSignInButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 16)
+        anonymousSignInButton.setTitleColor(.white, for: .normal)
         
         
     }
@@ -63,11 +78,17 @@ class SignViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Self.showClientSegueIdentifier,
-           let destination = segue.destination as? ClientViewController {
-            destination.configure(with: 42) {
+           let destination = segue.destination as? ClientViewController,
+            let uid = uid {
+            destination.configure(with: uid) {
                 print("\n\nview is changed!\n\n")
             }
         }
+    }
+    
+    private func isSignInSuccess(with uid: String?) {
+        self.uid = uid
+        performSegue(withIdentifier: Self.showClientSegueIdentifier, sender: self)
     }
 
     private func hasPreviousSignIn() {
@@ -78,17 +99,19 @@ class SignViewController: UIViewController {
             print("No user is signed in.")
         }
     }
+    
     private func firebaseSignIn(with credential: AuthCredential, _ sender: Any) {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 print("Firebase(with Google) sign in error: \(error)")
                 return
             } else {
-                self.performSegue(withIdentifier: Self.showClientSegueIdentifier, sender: sender)
+                self.isSignInSuccess(with: authResult?.user.uid)
                 print("User is signed with Firebase&Google")
             }
         }
     }
+    
     private func firebaseCreateUser(withEmail email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
@@ -117,12 +140,17 @@ class SignViewController: UIViewController {
         }
     }
 }
+
 extension SignViewController: LoginButtonDelegate {
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
             return
         }
+        let credential = FacebookAuthProvider
+          .credential(withAccessToken: AccessToken.current!.tokenString)
+        
+        firebaseSignIn(with: credential, self)
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
@@ -133,8 +161,6 @@ extension SignViewController: LoginButtonDelegate {
 // Button Actions
 // Email, Google, Phone, Facebook, Github
 extension SignViewController {
-    
-
 //    @IBAction func googleSignInButtonTabbed(_ sender: Any) {
     @objc func googleSignInButtonTabbed(_ sender: UIButton!) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -191,8 +217,17 @@ extension SignViewController {
                 }
             } else {
                 guard let strongSelf = self else { return }
-                print("User is signed with Firebase&Email \(strongSelf)")
+                strongSelf.isSignInSuccess(with: authResult?.user.uid)
+                print("User is signed with Firebase&Email ")
             }
+        }
+    }
+    @objc func anonymousSignInButtonTabbed(_ sender: Any) {
+        Auth.auth().signInAnonymously { authResult, error in
+            guard let user = authResult?.user else {
+                return
+            }
+            self.isSignInSuccess(with: user.uid)
         }
     }
 }
