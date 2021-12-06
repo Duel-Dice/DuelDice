@@ -156,7 +156,7 @@ extension SignViewController {
 
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                          accessToken: authentication.accessToken)
-            firebaseSignIn(with: credential, sender)
+            firebaseSignIn(with: credential, sender!)
         }
     }
 //    @IBAction func emailSignInButtonTabbed(_ sender: Any) {
