@@ -12,10 +12,10 @@ import Alamofire
 
 
 
-
-class GameViewController: UIViewController, IObserver {
+class GameViewController: UIViewController {
     
     @IBOutlet weak var DEBUG_LABEL: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     let play = Play()
     
     override func viewDidLoad() {
@@ -32,7 +32,25 @@ class GameViewController: UIViewController, IObserver {
         play.requestBegin()
         play.attach(self)
     }
+}
 
+// MARK: - Play(implement IObserver)
+
+extension GameViewController {
+    
+//    override func draw(_ rect: CGRect) {
+//      let path = UIBezierPath(ovalIn: rect)
+//      UIColor.green.setFill()
+//      path.fill()
+//    }
+    
+}
+
+
+
+// MARK: - Play(implement IObserver)
+
+extension GameViewController: IObserver {
     
     func update<Play>(subject: Play) {
 #if DEBUG

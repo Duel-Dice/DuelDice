@@ -96,11 +96,26 @@ class Play : IObserved {
 
     
     func TEST_DUEL_DATA() -> Duel {
-        let duel = Duel(duelId: "", userId1: "", userId2: "", dice1: [0], dice2: [0], status1: 0, status2: 0, isDone: self.TEST_RANDOM_HALF_BOOL())
+        let duel = Duel(duelId: "", userId1: "", userId2: "", dice1: TEST_RANDOM_RANGE_ARRAY(range: 6, times: 16), dice2: TEST_RANDOM_RANGE_ARRAY(range: 6, times: 16), status1: 0, status2: 0, isDone: self.TEST_RANDOM_HALF_BOOL())
 
         return duel
     }
     
+    func TEST_RANDOM_RANGE(max: Int) -> Int {
+        return Int.random(in: 1..<(max + 1));
+    }
+
+    func TEST_RANDOM_RANGE_ARRAY(range: Int, times: Int) -> [Int] {
+        var array = Array(repeating: 0, count: range)
+        
+        for _ in 0..<times {
+            let dice = Int.random(in: 0..<range)
+            array[dice] += 1
+        }
+        
+        return array
+    }
+
     func TEST_RANDOM_HALF_BOOL() -> Bool {
         return Int.random(in: 0..<2) < 1 ? false : true
     }
