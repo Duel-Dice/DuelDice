@@ -16,33 +16,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sXt-uK-gWj">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QF5-lO-gVk">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yea-X8-ChR" userLabel="Test Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6R-EK-pAO">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="278"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-3N-dhM">
-                                        <rect key="frame" x="0.0" y="180" width="414" height="638"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N1V-t9-2Yd">
+                                        <rect key="frame" x="0.0" y="278" width="414" height="270"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="N1V-t9-2Yd" secondAttribute="height" multiplier="69:45" id="XBK-uW-AWY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vp-e2-ACQ">
+                                        <rect key="frame" x="0.0" y="548" width="414" height="270"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5vp-e2-ACQ" secondAttribute="height" multiplier="69:45" id="B8j-Wm-vMO"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5vp-e2-ACQ" secondAttribute="trailing" id="5uq-Ll-Exa"/>
+                                    <constraint firstItem="5vp-e2-ACQ" firstAttribute="leading" secondItem="QF5-lO-gVk" secondAttribute="leading" id="9Re-TL-mwU"/>
+                                    <constraint firstItem="N1V-t9-2Yd" firstAttribute="leading" secondItem="QF5-lO-gVk" secondAttribute="leading" id="dVg-CZ-ipi"/>
+                                    <constraint firstAttribute="trailing" secondItem="N1V-t9-2Yd" secondAttribute="trailing" id="mhi-N3-IJs"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sXt-uK-gWj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="bzT-IH-dVJ"/>
-                            <constraint firstItem="sXt-uK-gWj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cSi-1I-Rii"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sXt-uK-gWj" secondAttribute="trailing" id="gGl-go-zzD"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sXt-uK-gWj" secondAttribute="bottom" id="ssf-nc-CXG"/>
+                            <constraint firstItem="QF5-lO-gVk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Rd6-lj-PPJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QF5-lO-gVk" secondAttribute="bottom" id="X30-yz-VID"/>
+                            <constraint firstItem="QF5-lO-gVk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="mcT-Lc-ESr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QF5-lO-gVk" secondAttribute="trailing" id="oMG-mE-CeL"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DEBUG_LABEL" destination="Yea-X8-ChR" id="bOC-Ks-pxV"/>
-                        <outlet property="imageView" destination="1zc-3N-dhM" id="1Gj-OT-JPJ"/>
+                        <outlet property="statusLabel" destination="k6R-EK-pAO" id="cAy-Uv-9SD"/>
+                        <outlet property="statusViewMy" destination="5vp-e2-ACQ" id="bOb-VQ-vk2"/>
+                        <outlet property="statusViewOther" destination="N1V-t9-2Yd" id="ieX-ZF-k4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

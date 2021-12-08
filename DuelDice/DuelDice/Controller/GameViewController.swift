@@ -14,9 +14,13 @@ import Alamofire
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var DEBUG_LABEL: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusViewOther: UIImageView!
+    @IBOutlet weak var statusViewMy: UIImageView!
+    
     let play = Play()
+    let windowMy = Graph(frame: CGRect(), bgColor: UIColor.systemYellow)
+    let windowOther = Graph(frame: CGRect(), bgColor: UIColor.systemBrown)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,24 +33,27 @@ class GameViewController: UIViewController {
             return
         }
         
+        constraintWindow(child: windowMy, parent: statusViewMy)
+        constraintWindow(child: windowOther, parent: statusViewOther)
+        
         play.requestBegin()
         play.attach(self)
     }
 }
 
-// MARK: - Play(implement IObserver)
+// MARK: - Status Window
 
 extension GameViewController {
     
-//    override func draw(_ rect: CGRect) {
-//      let path = UIBezierPath(ovalIn: rect)
-//      UIColor.green.setFill()
-//      path.fill()
-//    }
-    
+    func constraintWindow(child : Graph, parent: UIImageView) {
+        child.translatesAutoresizingMaskIntoConstraints = false
+        parent.addSubview(child)
+        child.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
+        child.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
+        child.heightAnchor.constraint(equalToConstant: parent.bounds.height).isActive = true
+        child.widthAnchor.constraint(equalToConstant: parent.bounds.width).isActive = true
+    }
 }
-
-
 
 // MARK: - Play(implement IObserver)
 
@@ -76,6 +83,14 @@ extension GameViewController: IObserver {
         DEBUG_LABEL_TEXT(content: "--- [DONE] ---")
         print("--- [DONE] ---")
 #endif
+        
+        windowMy.set(animation: true)
+        windowMy.set(diceNumber: play.requestResult!.dice1) // fix compare uid
+        windowMy.reDraw()
+        
+        windowOther.set(animation: true)
+        windowOther.set(diceNumber: play.requestResult!.dice2) // fix compare uid
+        windowOther.reDraw()
     }
 }
 
@@ -83,6 +98,6 @@ extension GameViewController: IObserver {
 
 extension GameViewController {
     func DEBUG_LABEL_TEXT(content : String) {
-        DEBUG_LABEL.text = content
+        statusLabel.text = content
     }
 }

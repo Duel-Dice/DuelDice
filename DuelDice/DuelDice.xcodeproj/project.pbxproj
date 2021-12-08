@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69DA4E4C2760CB4800D8D80B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA4E4B2760CB4800D8D80B /* Graph.swift */; };
+		69DA4E4E2760CC8700D8D80B /* GraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69DA4E4D2760CC8700D8D80B /* GraphView.xib */; };
+		69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA4E4F27610C1E00D8D80B /* Defines.swift */; };
 		69DCB9E6275E7E3C009D5F1A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 69DCB9E5275E7E3C009D5F1A /* Alamofire */; };
 		69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9E7275E7E51009D5F1A /* Form.swift */; };
 		69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9E9275E7E6E009D5F1A /* Play.swift */; };
@@ -53,6 +56,9 @@
 		446A8CE656941B510797F86A /* Pods-DuelDiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDiceTests.release.xcconfig"; path = "Target Support Files/Pods-DuelDiceTests/Pods-DuelDiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A930F7E117CEC66D6BAB4F7 /* Pods-DuelDice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice.debug.xcconfig"; path = "Target Support Files/Pods-DuelDice/Pods-DuelDice.debug.xcconfig"; sourceTree = "<group>"; };
 		653B4B556472409016EC8BC7 /* Pods-DuelDice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice.release.xcconfig"; path = "Target Support Files/Pods-DuelDice/Pods-DuelDice.release.xcconfig"; sourceTree = "<group>"; };
+		69DA4E4B2760CB4800D8D80B /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		69DA4E4D2760CC8700D8D80B /* GraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphView.xib; sourceTree = "<group>"; };
+		69DA4E4F27610C1E00D8D80B /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
 		69DCB9E7275E7E51009D5F1A /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		69DCB9E9275E7E6E009D5F1A /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		69DCB9EE275EA936009D5F1A /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				90A5AE432726A61800992192 /* Main.storyboard */,
 				90A5AE782727CF4300992192 /* Client.storyboard */,
 				90A5787E272DD6B900BD2860 /* Game.storyboard */,
+				69DA4E4D2760CC8700D8D80B /* GraphView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 				90A5AE412726A61800992192 /* SignViewController.swift */,
 				90A5AE742727CCA900992192 /* ClientViewController.swift */,
 				90A5AE762727CE0D00992192 /* GameViewController.swift */,
+				69DA4E4B2760CB4800D8D80B /* Graph.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				90A5AE712727C31B00992192 /* Player.swift */,
 				69DCB9E7275E7E51009D5F1A /* Form.swift */,
 				69DCB9E9275E7E6E009D5F1A /* Play.swift */,
+				69DA4E4F27610C1E00D8D80B /* Defines.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 				90A5AE792727CF4300992192 /* Client.storyboard in Resources */,
 				90A5AE4A2726A61900992192 /* LaunchScreen.storyboard in Resources */,
 				90A5AE472726A61900992192 /* Assets.xcassets in Resources */,
+				69DA4E4E2760CC8700D8D80B /* GraphView.xib in Resources */,
 				90A5787F272DD6B900BD2860 /* Game.storyboard in Resources */,
 				90A5AE452726A61800992192 /* Main.storyboard in Resources */,
 				9004C53A2758B69000F25BCD /* GoogleService-Info.plist in Resources */,
@@ -477,11 +487,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */,
+				69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */,
 				69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */,
 				90A5AE722727C31B00992192 /* Player.swift in Sources */,
 				90A5AE422726A61800992192 /* SignViewController.swift in Sources */,
 				69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */,
 				69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */,
+				69DA4E4C2760CB4800D8D80B /* Graph.swift in Sources */,
 				90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */,
 				90A5AE752727CCA900992192 /* ClientViewController.swift in Sources */,
 				90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */,
