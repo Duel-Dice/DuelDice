@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69DA4E4C2760CB4800D8D80B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA4E4B2760CB4800D8D80B /* Graph.swift */; };
+		69DA4E4E2760CC8700D8D80B /* GraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69DA4E4D2760CC8700D8D80B /* GraphView.xib */; };
+		69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA4E4F27610C1E00D8D80B /* Defines.swift */; };
+		69DCB9E6275E7E3C009D5F1A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 69DCB9E5275E7E3C009D5F1A /* Alamofire */; };
+		69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9E7275E7E51009D5F1A /* Form.swift */; };
+		69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9E9275E7E6E009D5F1A /* Play.swift */; };
+		69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9EE275EA936009D5F1A /* Interface.swift */; };
+		9004C53A2758B69000F25BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9004C5392758B69000F25BCD /* GoogleService-Info.plist */; };
 		90A5787F272DD6B900BD2860 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A5787E272DD6B900BD2860 /* Game.storyboard */; };
 		90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE3D2726A61800992192 /* AppDelegate.swift */; };
 		90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE3F2726A61800992192 /* SceneDelegate.swift */; };
@@ -21,6 +29,9 @@
 		90A5AE752727CCA900992192 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE742727CCA900992192 /* ClientViewController.swift */; };
 		90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE762727CE0D00992192 /* GameViewController.swift */; };
 		90A5AE792727CF4300992192 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A5AE782727CF4300992192 /* Client.storyboard */; };
+		96612805467380414B81AB1E /* Pods_DuelDice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885C5B631E2EF0D924790A86 /* Pods_DuelDice.framework */; };
+		9773A98CC727B380355F35F0 /* Pods_DuelDice_DuelDiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1551374CD94B94D5D790F64 /* Pods_DuelDice_DuelDiceUITests.framework */; };
+		D575E277766DB8ED1A65DF5A /* Pods_DuelDiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB008A9D76F0473ADDB21DCE /* Pods_DuelDiceTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +52,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20F062A427DBB0A8442D3D30 /* Pods-DuelDiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDiceTests.debug.xcconfig"; path = "Target Support Files/Pods-DuelDiceTests/Pods-DuelDiceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		446A8CE656941B510797F86A /* Pods-DuelDiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDiceTests.release.xcconfig"; path = "Target Support Files/Pods-DuelDiceTests/Pods-DuelDiceTests.release.xcconfig"; sourceTree = "<group>"; };
+		5A930F7E117CEC66D6BAB4F7 /* Pods-DuelDice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice.debug.xcconfig"; path = "Target Support Files/Pods-DuelDice/Pods-DuelDice.debug.xcconfig"; sourceTree = "<group>"; };
+		653B4B556472409016EC8BC7 /* Pods-DuelDice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice.release.xcconfig"; path = "Target Support Files/Pods-DuelDice/Pods-DuelDice.release.xcconfig"; sourceTree = "<group>"; };
+		69DA4E4B2760CB4800D8D80B /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		69DA4E4D2760CC8700D8D80B /* GraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphView.xib; sourceTree = "<group>"; };
+		69DA4E4F27610C1E00D8D80B /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		69DCB9E7275E7E51009D5F1A /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		69DCB9E9275E7E6E009D5F1A /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		69DCB9EE275EA936009D5F1A /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		885C5B631E2EF0D924790A86 /* Pods_DuelDice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DD25B4DAD61B22F8098FA8 /* Pods-DuelDice-DuelDiceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice-DuelDiceUITests.release.xcconfig"; path = "Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9004C5392758B69000F25BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90A5787E272DD6B900BD2860 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		90A5AE3A2726A61800992192 /* DuelDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuelDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A5AE3D2726A61800992192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +83,9 @@
 		90A5AE742727CCA900992192 /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		90A5AE762727CE0D00992192 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		90A5AE782727CF4300992192 /* Client.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
+		DB008A9D76F0473ADDB21DCE /* Pods_DuelDiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1551374CD94B94D5D790F64 /* Pods_DuelDice_DuelDiceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDice_DuelDiceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DDE9CCD17CEF169986ECF3 /* Pods-DuelDice-DuelDiceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice-DuelDiceUITests.debug.xcconfig"; path = "Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96612805467380414B81AB1E /* Pods_DuelDice.framework in Frameworks */,
+				69DCB9E6275E7E3C009D5F1A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D575E277766DB8ED1A65DF5A /* Pods_DuelDiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +110,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9773A98CC727B380355F35F0 /* Pods_DuelDice_DuelDiceUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		129380A81DEC1EA81394465A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A930F7E117CEC66D6BAB4F7 /* Pods-DuelDice.debug.xcconfig */,
+				653B4B556472409016EC8BC7 /* Pods-DuelDice.release.xcconfig */,
+				E4DDE9CCD17CEF169986ECF3 /* Pods-DuelDice-DuelDiceUITests.debug.xcconfig */,
+				88DD25B4DAD61B22F8098FA8 /* Pods-DuelDice-DuelDiceUITests.release.xcconfig */,
+				20F062A427DBB0A8442D3D30 /* Pods-DuelDiceTests.debug.xcconfig */,
+				446A8CE656941B510797F86A /* Pods-DuelDiceTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		69DCB9ED275EA921009D5F1A /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				69DCB9EE275EA936009D5F1A /* Interface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		90A5AE312726A61800992192 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +145,8 @@
 				90A5AE532726A61900992192 /* DuelDiceTests */,
 				90A5AE5D2726A61900992192 /* DuelDiceUITests */,
 				90A5AE3B2726A61800992192 /* Products */,
+				129380A81DEC1EA81394465A /* Pods */,
+				9B1425EEFCD73461CC813863 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +163,7 @@
 		90A5AE3C2726A61800992192 /* DuelDice */ = {
 			isa = PBXGroup;
 			children = (
+				69DCB9ED275EA921009D5F1A /* Interface */,
 				90A5AE3D2726A61800992192 /* AppDelegate.swift */,
 				90A5AE3F2726A61800992192 /* SceneDelegate.swift */,
 				90A5AE732727C31E00992192 /* Model */,
@@ -116,6 +171,7 @@
 				90A5AE6E2727C2ED00992192 /* View */,
 				90A5AE462726A61900992192 /* Assets.xcassets */,
 				90A5AE482726A61900992192 /* LaunchScreen.storyboard */,
+				9004C5392758B69000F25BCD /* GoogleService-Info.plist */,
 				90A5AE4B2726A61900992192 /* Info.plist */,
 			);
 			path = DuelDice;
@@ -144,6 +200,7 @@
 				90A5AE432726A61800992192 /* Main.storyboard */,
 				90A5AE782727CF4300992192 /* Client.storyboard */,
 				90A5787E272DD6B900BD2860 /* Game.storyboard */,
+				69DA4E4D2760CC8700D8D80B /* GraphView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +211,7 @@
 				90A5AE412726A61800992192 /* SignViewController.swift */,
 				90A5AE742727CCA900992192 /* ClientViewController.swift */,
 				90A5AE762727CE0D00992192 /* GameViewController.swift */,
+				69DA4E4B2760CB4800D8D80B /* Graph.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,8 +220,21 @@
 			isa = PBXGroup;
 			children = (
 				90A5AE712727C31B00992192 /* Player.swift */,
+				69DCB9E7275E7E51009D5F1A /* Form.swift */,
+				69DCB9E9275E7E6E009D5F1A /* Play.swift */,
+				69DA4E4F27610C1E00D8D80B /* Defines.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9B1425EEFCD73461CC813863 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				885C5B631E2EF0D924790A86 /* Pods_DuelDice.framework */,
+				E1551374CD94B94D5D790F64 /* Pods_DuelDice_DuelDiceUITests.framework */,
+				DB008A9D76F0473ADDB21DCE /* Pods_DuelDiceTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,15 +244,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A5AE642726A61900992192 /* Build configuration list for PBXNativeTarget "DuelDice" */;
 			buildPhases = (
+				4F1716AEF25D1FB68FE0E120 /* [CP] Check Pods Manifest.lock */,
 				90A5AE362726A61800992192 /* Sources */,
 				90A5AE372726A61800992192 /* Frameworks */,
 				90A5AE382726A61800992192 /* Resources */,
+				B640BA3D72158EEF7F633C47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DuelDice;
+			packageProductDependencies = (
+				69DCB9E5275E7E3C009D5F1A /* Alamofire */,
+			);
 			productName = DuelDice;
 			productReference = 90A5AE3A2726A61800992192 /* DuelDice.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +266,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A5AE672726A61900992192 /* Build configuration list for PBXNativeTarget "DuelDiceTests" */;
 			buildPhases = (
+				BA97A75E912260C37664E548 /* [CP] Check Pods Manifest.lock */,
 				90A5AE4C2726A61900992192 /* Sources */,
 				90A5AE4D2726A61900992192 /* Frameworks */,
 				90A5AE4E2726A61900992192 /* Resources */,
@@ -208,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A5AE6A2726A61900992192 /* Build configuration list for PBXNativeTarget "DuelDiceUITests" */;
 			buildPhases = (
+				D15B93F7F791F68BC51F8FE6 /* [CP] Check Pods Manifest.lock */,
 				90A5AE562726A61900992192 /* Sources */,
 				90A5AE572726A61900992192 /* Frameworks */,
 				90A5AE582726A61900992192 /* Resources */,
+				3861568ABB6BCE6767B264AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,6 +333,9 @@
 				Base,
 			);
 			mainGroup = 90A5AE312726A61800992192;
+			packageReferences = (
+				69DCB9E4275E7E3C009D5F1A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 90A5AE3B2726A61800992192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,8 +355,10 @@
 				90A5AE792727CF4300992192 /* Client.storyboard in Resources */,
 				90A5AE4A2726A61900992192 /* LaunchScreen.storyboard in Resources */,
 				90A5AE472726A61900992192 /* Assets.xcassets in Resources */,
+				69DA4E4E2760CC8700D8D80B /* GraphView.xib in Resources */,
 				90A5787F272DD6B900BD2860 /* Game.storyboard in Resources */,
 				90A5AE452726A61800992192 /* Main.storyboard in Resources */,
+				9004C53A2758B69000F25BCD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,14 +378,122 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3861568ABB6BCE6767B264AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F1716AEF25D1FB68FE0E120 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DuelDice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B640BA3D72158EEF7F633C47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DuelDice/Pods-DuelDice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DuelDice/Pods-DuelDice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DuelDice/Pods-DuelDice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA97A75E912260C37664E548 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DuelDiceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D15B93F7F791F68BC51F8FE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DuelDice-DuelDiceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		90A5AE362726A61800992192 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */,
+				69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */,
+				69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */,
 				90A5AE722727C31B00992192 /* Player.swift in Sources */,
 				90A5AE422726A61800992192 /* SignViewController.swift in Sources */,
+				69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */,
+				69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */,
+				69DA4E4C2760CB4800D8D80B /* Graph.swift in Sources */,
 				90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */,
 				90A5AE752727CCA900992192 /* ClientViewController.swift in Sources */,
 				90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */,
@@ -478,6 +670,7 @@
 		};
 		90A5AE652726A61900992192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A930F7E117CEC66D6BAB4F7 /* Pods-DuelDice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,6 +699,7 @@
 		};
 		90A5AE662726A61900992192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 653B4B556472409016EC8BC7 /* Pods-DuelDice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -534,6 +728,7 @@
 		};
 		90A5AE682726A61900992192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20F062A427DBB0A8442D3D30 /* Pods-DuelDiceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -559,6 +754,7 @@
 		};
 		90A5AE692726A61900992192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 446A8CE656941B510797F86A /* Pods-DuelDiceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -584,6 +780,7 @@
 		};
 		90A5AE6B2726A61900992192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4DDE9CCD17CEF169986ECF3 /* Pods-DuelDice-DuelDiceUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -607,6 +804,7 @@
 		};
 		90A5AE6C2726A61900992192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88DD25B4DAD61B22F8098FA8 /* Pods-DuelDice-DuelDiceUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -668,6 +866,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		69DCB9E4275E7E3C009D5F1A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		69DCB9E5275E7E3C009D5F1A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69DCB9E4275E7E3C009D5F1A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90A5AE322726A61800992192 /* Project object */;
 }

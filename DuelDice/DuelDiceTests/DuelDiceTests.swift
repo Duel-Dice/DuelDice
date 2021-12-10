@@ -30,4 +30,11 @@ class DuelDiceTests: XCTestCase {
         }
     }
 
+    func testPlay() throws {
+        let play: Play = Play()
+        
+//        play.TESTTEST()
+        XCTAssertTrue(play.TESTTEST())
+    }
+    
 }
