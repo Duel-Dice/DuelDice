@@ -101,7 +101,7 @@ extension Play {
 extension Play {
 
     func TEST_DUEL_DATA() -> Duel {
-        let duel = Duel(duelId: "", userId1: "", userId2: "", dice1: TEST_RANDOM_RANGE_ARRAY(times: 16), dice2: TEST_RANDOM_RANGE_ARRAY(times: 16), status1: 0, status2: 0, isDone: TEST_RANDOM_HALF_BOOL())
+        let duel = Duel(duelId: "", userId1: "", userId2: "", dice1: TEST_RANDOM_RANGE_ARRAY(times: 16), dice2: TEST_RANDOM_RANGE_ARRAY(times: 16), status1: 0, status2: 0, isDone: /*TEST_RANDOM_HALF_BOOL()*/ true)
         return duel
     }
     

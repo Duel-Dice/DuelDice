@@ -55,7 +55,9 @@ extension Graph {
     
     func set(bgColor: UIColor) { self.bgColor = bgColor }
     func set(animation: Bool) { self.animation = animation }
-    func set(diceNumber: [Int]) { self.diceNumber = diceNumber }
+    func set(diceNumber: [Int]) {
+        self.diceNumber = diceNumber
+    }
     
     func setCondition() {
         backGround = backGround ?? CGRect(x: GRAPH_CORNER_RADIUS, y: 0, width: bounds.width - GRAPH_CORNER_RADIUS * 2, height: bounds.height - GRAPH_CORNER_RADIUS)
@@ -64,16 +66,14 @@ extension Graph {
     func setPoint(_ index: Int, _ diceAmount: Int) -> [Double] {
         var array = Array(repeating: 0.0, count: 5)
         
-        array[0] = frame.width / CGFloat(10) * CGFloat(index + 2) // start x
+        array[0] = frame.width / CGFloat(15) * CGFloat(2.5 + Double(index)) // start x
         array[3] = frame.width / CGFloat(20) // lineWidth
         array[1] = frame.height / CGFloat(20) * CGFloat(19) - array[3] * 2 // start y
         array[2] = array[1] - frame.height / CGFloat(self.diceAmount) * CGFloat(diceAmount) // end y
         array[4] = CGFloat(diceAmount) / CGFloat(self.diceAmount) * CGFloat(DICE_FACE_COUNT * 2)
-        print(array)
         
         return array
     }
-
 }
 
 // MARK: - animate
@@ -95,21 +95,25 @@ extension Graph {
         let point = setPoint(index, diceAmount)
         let layer = CAShapeLayer()
         let path = UIBezierPath()
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+
+        self.layer.addSublayer(layer)
 
         path.move(to: CGPoint(x: point[0], y: point[1]))
         path.addLine(to: CGPoint(x: point[0], y: point[2]))
 
-        layer.path = path.cgPath
         layer.lineCap = .round
         layer.lineWidth = point[3]
         layer.strokeColor = UIColor.systemRed.cgColor
-        self.layer.addSublayer(layer)
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        layer.path = path.cgPath
+
+        animation.fromValue = 0
         animation.toValue = 1
         animation.duration = point[4]
-        animation.fromValue = 0
-        layer.add(animation, forKey: "strokeEnd")
+        animation.beginTime = CACurrentMediaTime()
+
+//        layer.add(animation, forKey: "strokeEnd")
+        layer.add(animation, forKey: animation.keyPath)
     }
 
 }
@@ -123,12 +127,14 @@ extension Graph {
     override func draw(_ rect: CGRect) {
         setCondition()
         
+        super.draw(rect)
+        
         let layer = CAShapeLayer()
         let path = UIBezierPath(roundedRect: backGround!, cornerRadius: GRAPH_CORNER_RADIUS)
         layer.path = path.cgPath
         layer.fillColor = bgColor.cgColor
         self.layer.addSublayer(layer)
-        
+
         diceNumberAnimate()
     }
 
