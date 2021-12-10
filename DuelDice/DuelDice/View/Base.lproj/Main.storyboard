@@ -24,12 +24,13 @@
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-aS-pIF">
                                 <rect key="frame" x="50" y="752" width="314" height="100"/>
+                                <color key="backgroundColor" red="0.37903877159999999" green="0.52803749870000005" blue="0.96614256779999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w3z-aS-pIF" secondAttribute="bottom" constant="10" id="62e-YH-mwf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w3z-aS-pIF" secondAttribute="bottom" constant="10" id="62e-YH-mwf" userLabel="Safe Area.bottom = Sign In Stack View.bottom - 10"/>
                             <constraint firstItem="w3z-aS-pIF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-50" id="REe-nf-orf"/>
                             <constraint firstItem="b3W-Dp-355" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eN2-BV-RAY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b3W-Dp-355" secondAttribute="trailing" id="hwV-Sh-bZH"/>

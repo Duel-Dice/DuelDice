@@ -16,6 +16,7 @@ class SignViewController: UIViewController {
     
 //    @IBOutlet var googleSignInButton: GIDSignInButton!
 //    @IBOutlet var emailSignInButton: UIButton!
+    
     @IBOutlet var signInStackView: UIStackView!
     var uid: String?
     
@@ -36,8 +37,12 @@ class SignViewController: UIViewController {
         
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
         googleSignInButton.addTarget(self, action: #selector(googleSignInButtonTabbed), for: .touchUpInside)
-        googleSignInButton.heightAnchor.constraint(equalToConstant: 425).isActive = true
-        googleSignInButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        NSLayoutConstraint.activate([
+            googleSignInButton.heightAnchor.constraint(equalToConstant: 425),
+            googleSignInButton.widthAnchor.constraint(equalToConstant: 225)
+        ])
+        
+        googleSignInButton.style = .iconOnly
         
         emailSignInButton.translatesAutoresizingMaskIntoConstraints = false
         emailSignInButton.addTarget(self, action: #selector(emailSignInButtonTabbed), for: .touchUpInside)
@@ -179,7 +184,7 @@ extension SignViewController {
             else {
                 return
             }
-
+            print(idToken)
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                          accessToken: authentication.accessToken)
             firebaseSignIn(with: credential, sender!)
