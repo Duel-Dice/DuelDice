@@ -19,6 +19,7 @@ async function loginUser(req, res, next) {
   return res.status(200).json({ token });
 }
 
+// 이미 로그인되어있다면?
 async function registerUser(req, res, next) {
   const { firebase_uid, nickname } = req.body;
 

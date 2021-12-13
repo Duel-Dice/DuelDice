@@ -1,5 +1,6 @@
 import { Sequelize, DataTypes } from '../database.js';
-import { User } from './user.js';
+import pkg from 'sequelize';
+const { Op } = pkg;
 
 export const Duel = Sequelize.define(
   'duel',
@@ -33,21 +34,23 @@ export const Duel = Sequelize.define(
         key: 'user_id',
       },
     },
-    player_1_state: {
+    player_1_left: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    player_2_state: {
+    player_2_left: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
     player_1_value: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: 0,
     },
     player_2_value: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: 0,
     },
   },
   {
@@ -58,3 +61,73 @@ export const Duel = Sequelize.define(
 );
 
 // Duel.belongsTo(User);
+
+async function getActiveByUserId(user_id) {
+  return await Duel.findOne({
+    where: {
+      [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
+      is_done: false,
+    },
+    returning: true,
+    raw: true,
+  });
+}
+
+async function getByDuelId(duel_id) {
+  return await Duel.findOne({
+    where: { duel_id },
+    returning: true,
+    raw: true,
+  });
+}
+
+async function create(
+  player_1_id, //
+  player_2_id,
+  player_1_left,
+  player_2_left,
+) {
+  return Duel.create(
+    {
+      player_1_id, //
+      player_2_id,
+      player_1_left,
+      player_2_left,
+    },
+    {
+      returning: true,
+      raw: true,
+    },
+  );
+}
+
+async function update(
+  duel_id, //
+  is_done,
+  player_1_left,
+  player_2_left,
+  player_1_value,
+  player_2_value,
+) {
+  return Duel.update(
+    {
+      is_done, //
+      player_1_left,
+      player_2_left,
+      player_1_value,
+      player_2_value,
+    },
+    {
+      where: { duel_id },
+      returning: true,
+      raw: true,
+    },
+  );
+}
+
+export const DuelModel = {
+  getActiveByUserId,
+  getByDuelId,
+  create,
+  update,
+};

@@ -62,7 +62,7 @@ export const User = Sequelize.define(
 
 // 아래 2개 옵션 빼도 잘 되는지 확인
 //  returning: true,
-//  plain: true,
+//  raw: true,
 
 async function getByUserId(user_id) {
   return await User.findOne({
@@ -76,7 +76,7 @@ async function getByUserId(user_id) {
     ],
     where: { user_id },
     returning: true,
-    plain: true,
+    raw: true,
   });
 }
 
@@ -92,7 +92,7 @@ async function getByFirebaseUid(firebase_uid) {
     ],
     where: { firebase_uid },
     returning: true,
-    plain: true,
+    raw: true,
   });
 }
 
@@ -104,7 +104,7 @@ async function create(firebase_uid, nickname) {
     },
     {
       returning: true,
-      plain: true,
+      raw: true,
     },
   );
 }
@@ -131,7 +131,7 @@ async function update(
     {
       where: { user_id },
       returning: true,
-      plain: true,
+      raw: true,
     },
   );
 }

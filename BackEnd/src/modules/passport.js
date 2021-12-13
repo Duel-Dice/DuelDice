@@ -10,10 +10,10 @@ export const JWT = new JwtStrategy(
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: config.jwt.secret,
   },
-  function (jwt_payload, done) {
+  async function (jwt_payload, done) {
     console.log('payload received', jwt_payload);
     try {
-      const user = UserService.getUser(jwt_payload.user_id);
+      const user = await UserService.getUser(jwt_payload.user_id);
 
       done(null, user);
     } catch (error) {
