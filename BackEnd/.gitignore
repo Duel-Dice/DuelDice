@@ -10,6 +10,8 @@ gitlab
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 .env.development
+.env.production
+.env.test
 temp
 
 .vscode
