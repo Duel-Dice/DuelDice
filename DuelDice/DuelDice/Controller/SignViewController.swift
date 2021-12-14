@@ -78,7 +78,7 @@ class SignViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        hasPreviousSignIn()
+        hasPreviousSignIn()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,6 +99,13 @@ class SignViewController: UIViewController {
     private func hasPreviousSignIn() {
         if let user = Auth.auth().currentUser {
             print("User is signed in. [\(user.uid)]")
+            user.getIDTokenForcingRefresh(true) { idToken, error in
+              if let error = error {
+                  print("error!!")
+                return;
+              }
+                print(idToken)
+            }
             performSegue(withIdentifier: Self.showClientSegueIdentifier, sender: self)
         } else {
             print("No user is signed in.")
