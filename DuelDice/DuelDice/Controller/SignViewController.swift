@@ -236,20 +236,3 @@ extension SignViewController {
         }
     }
 }
-
-// Anonymous Signin
-//
-//extension SignViewController {
-//    func firebaseAnonymousSignIn() {
-//        Auth.auth().signInAnonymously { authResult, error in
-//            guard let user = authResult?.user else {
-//                return
-//            }
-//            let isAnonymous = user.isAnonymous
-//            let uid = user.uid
-//
-//            print(uid)
-//            print(isAnonymous)
-//        }
-//    }
-//}
