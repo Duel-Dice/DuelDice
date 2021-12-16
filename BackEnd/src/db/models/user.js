@@ -60,10 +60,6 @@ export const User = Sequelize.define(
 //   onDelete: 'set null',
 // });
 
-// 아래 2개 옵션 빼도 잘 되는지 확인
-//  returning: true,
-//  raw: true,
-
 async function getByUserId(user_id) {
   return await User.findOne({
     attributes: [
@@ -75,7 +71,6 @@ async function getByUserId(user_id) {
       'lose_count',
     ],
     where: { user_id },
-    returning: true,
     raw: true,
   });
 }
@@ -91,7 +86,6 @@ async function getByFirebaseUid(firebase_uid) {
       'lose_count',
     ],
     where: { firebase_uid },
-    returning: true,
     raw: true,
   });
 }
@@ -103,7 +97,6 @@ async function create(firebase_uid, nickname) {
       nickname,
     },
     {
-      returning: true,
       raw: true,
     },
   );
@@ -130,8 +123,6 @@ async function update(
     },
     {
       where: { user_id },
-      returning: true,
-      raw: true,
     },
   );
 }

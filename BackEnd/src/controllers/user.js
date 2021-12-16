@@ -42,7 +42,7 @@ async function updateUserNickname(req, res, next) {
 
   const user = await UserService.updateUserNickname(user_id, nickname);
 
-  return res.status(200).json(user);
+  return res.sendStatus(200);
 }
 
 export const UserController = {

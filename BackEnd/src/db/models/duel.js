@@ -68,7 +68,6 @@ async function getActiveByUserId(user_id) {
       [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
       is_done: false,
     },
-    returning: true,
     raw: true,
   });
 }
@@ -76,7 +75,6 @@ async function getActiveByUserId(user_id) {
 async function getByDuelId(duel_id) {
   return await Duel.findOne({
     where: { duel_id },
-    returning: true,
     raw: true,
   });
 }
@@ -95,7 +93,6 @@ async function create(
       player_2_left,
     },
     {
-      returning: true,
       raw: true,
     },
   );
@@ -119,8 +116,6 @@ async function update(
     },
     {
       where: { duel_id },
-      returning: true,
-      raw: true,
     },
   );
 }
