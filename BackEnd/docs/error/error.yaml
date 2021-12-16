@@ -1,0 +1,9 @@
+components:
+  schemas:
+    Error:
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: 에러 메세지

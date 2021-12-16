@@ -1,0 +1,9 @@
+openapi: '3.0.0'
+info:
+  title: 'DDIP API'
+  version: '0.0.1'
+  description: 'DDIP API docs'
+servers:
+  - url: 'http://ec2-3-34-2-242.ap-northeast-2.compute.amazonaws.com:7000'
+    description: 'Development server'
+basePath: '/api'

@@ -1,0 +1,50 @@
+paths:
+  /api/attend:
+    get:
+      tags:
+        - 참여
+      summary: 참여한 모임/유저들을 가져옵니다.
+      description: >
+        ㅁㄴㅇㄹ
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "The user name for login"
+        required: true
+        type: "string"
+    post:
+      tags:
+        - 참여
+
+    delete:
+      tags:
+        - 참여
+
+components:
+  schemas:
+    Attend:
+      required:
+        - user_id
+        - meeting_id
+        - created_at
+      properties:
+        user_id:
+          type: string
+          description: 유저 아이디
+        meeting_id:
+          type: string
+          description: 모임 아이디
+        created_at:
+          type: string
+          description: 참여한 시간
+    AttendInput:
+      required:
+        - user_id
+        - meeting_id
+      properties:
+        user_id:
+          type: string
+          description: 유저 아이디
+        meeting_id:
+          type: string
+          description: 모임 아이디
