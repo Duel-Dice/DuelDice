@@ -41,4 +41,4 @@ app.use(error.errorHandler);
 
 db.Sequelize.sync();
 
-app.listen(config.host.port);
+app.listen(config.host.port, '0.0.0.0');
