@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e '.js, .mjs, .coffee, .litcoffee, .json, .yaml'"
+    "start": "nodemon -e '.js, .mjs, .coffee, .litcoffee, .json, .yaml'",
+    "build": "docker build -t dueldice-backend ."
   },
   "author": "",
   "license": "ISC",

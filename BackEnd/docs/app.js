@@ -8,6 +8,7 @@ import passport from 'passport';
 import cookieParser from 'cookie-parser';
 
 import * as error from './modules/error.js';
+import * as swagger from './modules/swagger.js';
 import * as passportStrategy from './modules/passport.js';
 
 import config from './config/index.js';
@@ -15,6 +16,8 @@ import routes from './routes/index.js';
 import * as db from './db/database.js';
 
 const app = express();
+
+app.use('/api/docs', swagger.serve, swagger.setup);
 
 app.use(
   cors({
