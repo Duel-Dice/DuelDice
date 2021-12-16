@@ -11,6 +11,8 @@ FULLIMAGE_NAME	=	$(REPO)/$(IMAGE_NAME):$(TAG)
 
 all		: build push clean
 
+server	: dist clean
+
 build	:
 	sudo docker build -t $(FULLIMAGE_NAME) . 
 
@@ -24,8 +26,9 @@ fclean	: clean
 	sudo docker rmi $(FULLIMAGE_NAME)
 
 dist	:
-	docker-compose -p $(PROJECT_NAME) up -d 
+	sudo docker-compose pull
+	sudo docker-compose -p $(PROJECT_NAME) up -d 
 
 re		: fclean all
 
-.PHONY: all build push fclean re
+.PHONY: all build push fclean re dist
