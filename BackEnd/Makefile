@@ -1,11 +1,7 @@
 # Vars =========================
 
-PROJECT_NAME	=	dueldice
-
-IMAGE_NAME		=	dueldice
-REPO			=	petercha2000
-TAG				=	backend
-FULLIMAGE_NAME	=	$(REPO)/$(IMAGE_NAME):$(TAG)
+PROJECT	=	dueldice
+IMAGES	=	petercha2000/dueldice:backend
 
 # Rules =========================
 
@@ -14,20 +10,22 @@ all		: build push clean
 server	: dist clean
 
 build	:
-	sudo docker build -t $(FULLIMAGE_NAME) . 
+	sudo docker-compose build
 
 push	:
-	sudo docker push $(FULLIMAGE_NAME)
+	sudo docker-compose push
 
 clean	:
 	@sudo docker rmi $(shell (sudo docker images --filter "dangling=true" -q --no-trunc)) 2>/dev/null | cat
 
 fclean	: clean
-	sudo docker rmi $(FULLIMAGE_NAME)
+	sudo docker-compose -p $(PROJECT) down
+	sudo docker-compose -p $(PROJECT) rm
+	sudo docker rmi $(IMAGES)
 
 dist	:
 	sudo docker-compose pull
-	sudo docker-compose -p $(PROJECT_NAME) up -d 
+	sudo docker-compose -p $(PROJECT) up -d 
 
 re		: fclean all
 

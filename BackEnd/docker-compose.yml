@@ -1,7 +1,18 @@
 version: "3.7"
 
 services:
-    app:
+    backend:
         image: petercha2000/dueldice:backend
-        ports:
-            - 8000:5000
+        build:
+            context: .
+            dockerfile: Dockerfile
+        platform: linux/amd64
+        restart: always
+        networks:
+            gate_net:
+                aliases:
+                    - dueldice
+networks:
+    gate_net:
+        driver: bridge
+        external: true
