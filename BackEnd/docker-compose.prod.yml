@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+    proxy:
+        image: petercha2000/dueldice:proxy
+        build:
+            context: ./proxy
+            dockerfile: Dockerfile.prod
+        platform: linux/amd64
+        restart: always
+        networks:
+            - default
+            - web_gate
+        depends_on:
+            - backend
+            - admin
+    admin:
+        image: dueldice:admin
+        build:
+            context: ./admin
+            dockerfile: Dockerfile.prod
+        env_file:
+            - ./admin/env/.env.production
+        platform: linux/amd64
+        restart: always
+        networks:
+            - default
+    backend:
+        image: petercha2000/dueldice:backend
+        build:
+            context: ./app
+            dockerfile: Dockerfile.prod
+        platform: linux/amd64
+        restart: always
+        volumes:
+            - ./app/env:/usr/src/app/env
+        networks:
+            - default
+
+networks:
+    web_gate:
+        driver: bridge
+        external: true
+    default:
+        driver: bridge
+        internal: true

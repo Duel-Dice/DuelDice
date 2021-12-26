@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true })); // 폼으로 넘어오는 데�
 app.use(passport.initialize());
 passport.use(passportStrategy.JWT);
 
-app.use('/api', routes());
+app.use('/', routes());
 
 app.use(error.errorPageNotFound);
 app.use(error.errorHandler);

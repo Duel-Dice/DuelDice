@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+    db:
+        image: mysql
+        restart: always
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+        volumes:
+            - ./db/data:/var/lib/mysql
+        env_file:
+            - ./db/env/.env.production
+        networks:
+            - tcp_gate
+
+networks:
+    tcp_gate:
+        driver: bridge
+        external: true
+

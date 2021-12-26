@@ -1,32 +1,43 @@
 # Vars =========================
 
 PROJECT	=	dueldice
-IMAGES	=	petercha2000/dueldice:backend
+IMAGES	=	\
+			petercha2000/dueldice:backend \
+			petercha2000/dueldice:admin \
+			petercha2000/dueldice:proxy
 
 # Rules =========================
 
-all		: build push clean
+all		: build
 
-server	: dist clean
+.PHONY:	build
+build	: clean
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod build
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod push
 
-build	:
-	sudo docker-compose build
+.PHONY:	prod
+prod	: clean
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod pull
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod up -d 
 
-push	:
-	sudo docker-compose push
+.PHONY:	db
+db		:
+	sudo docker-compose -f docker-compose.prod.db.yml -p $(PROJECT)-db up -d
 
+.PHONY:	dev
+dev		: clean
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-dev down
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-dev rm
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-dev build
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-dev up -d
+
+.PHONY:	clean
 clean	:
 	@sudo docker rmi $(shell (sudo docker images --filter "dangling=true" -q --no-trunc)) 2>/dev/null | cat
 
-fclean	: clean
-	sudo docker-compose -p $(PROJECT) down
-	sudo docker-compose -p $(PROJECT) rm
+.PHONY: fclean
+fclean	:
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-prod down
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-db down
+	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-dev down
 	sudo docker rmi $(IMAGES)
-
-dist	:
-	sudo docker-compose pull
-	sudo docker-compose -p $(PROJECT) up -d 
-
-re		: fclean all
-
-.PHONY: all build push fclean re dist

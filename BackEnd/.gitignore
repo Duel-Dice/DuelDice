@@ -15,6 +15,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 temp
 
 .vscode
+db/data
 
 # Runtime data
 pids

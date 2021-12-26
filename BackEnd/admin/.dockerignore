@@ -3,8 +3,9 @@
 .gitignore
 .vscode
 docs
+env
 node_modules
-Dockerfile
+Dockerfile.*
 Makefile
 docker-compose.yml
 README.md

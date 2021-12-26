@@ -1,0 +1,70 @@
+version: "3.7"
+
+services:
+    proxy:
+        image: dueldice:proxy
+        build:
+            context: ./proxy
+            dockerfile: Dockerfile.dev
+        platform: linux/amd64
+        restart: always
+        stdin_open: true
+        tty: true
+        networks:
+            - default
+            - web_gate
+        depends_on:
+            - admin
+            - backend
+    admin:
+        image: dueldice:admin
+        build:
+            context: ./admin
+            dockerfile: Dockerfile.dev
+        env_file:
+            - ./admin/env/.env.development
+        platform: linux/amd64
+        restart: always
+        stdin_open: true
+        tty: true
+        volumes:
+          - ./admin:/usr/src/app
+        networks:
+            - default
+    backend:
+        image: dueldice:backend
+        build:
+            context: ./app
+            dockerfile: Dockerfile.dev
+        platform: linux/amd64
+        restart: always
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./app:/usr/src/app
+        networks:
+            - default
+        depends_on:
+            - db
+    db:
+        image: mysql
+        restart: always
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+        env_file:
+            - ./db/env/.env.development
+        networks:
+            - default
+            - tcp_gate
+
+networks:
+    web_gate:
+        driver: bridge
+        external: true
+    tcp_gate:
+        driver: bridge
+        external: true
+    default:
+        driver: bridge
+        internal: true
