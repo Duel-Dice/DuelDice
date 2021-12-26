@@ -15,7 +15,7 @@ services:
             - backend
             - admin
     admin:
-        image: dueldice:admin
+        image: petercha2000/dueldice:admin
         build:
             context: ./admin
             dockerfile: Dockerfile.prod
