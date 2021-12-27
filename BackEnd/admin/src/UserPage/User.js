@@ -38,7 +38,7 @@ const User = ({ setUserId }) => {
         gutterBottom
         sx={{ textAlign: "center" }}
       >
-        Userasdf
+        User
       </Typography>
       <List>
         {users.map((user, index) => {

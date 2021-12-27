@@ -44,4 +44,3 @@ networks:
         external: true
     default:
         driver: bridge
-        internal: true

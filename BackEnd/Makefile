@@ -42,4 +42,4 @@ fclean	:
 	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-prod down
 	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-db down
 	sudo docker-compose -f docker-compose.dev.yml -p $(PROJECT)-dev down
-	sudo docker rmi $(IMAGES)
+	sudo docker rmi $(IMAGES) | cat
