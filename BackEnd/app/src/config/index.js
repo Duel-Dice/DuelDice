@@ -22,9 +22,6 @@ export default {
   host: {
     port: parseInt(configCheck('HOST_PORT')),
   },
-  jwt: {
-    secret: configCheck('JWT_SECRET'),
-  },
   db: {
     host: configCheck('DB_HOST'),
     port: parseInt(configCheck('DB_PORT')),

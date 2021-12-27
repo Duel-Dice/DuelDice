@@ -9,43 +9,47 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 
-const Piscine = ({ userId }) => {
-  const [piscines, setPiscines] = useState([]);
+const User = ({ dice_count }) => {
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const url = `https://betti.kr:9000/api/users/${userId}/piscines`;
+    const url = `https://skyrich3.synology.me:7780/dueldice/dev/api/statics/users/${dice_count}`;
 
     axios
       .get(url)
       .then((response) => {
-        setPiscines(response.data);
+        setUsers(
+          response.data.sort(function (a, b) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          })
+        );
       })
       .catch((error) => {
         console.log(`${url} 호출 실패!`);
       });
-  }, [userId]);
+  }, [dice_count]);
 
   return (
-    <Stack sx={{ width: "100%", maxWidth: 500, bgcolor: "background.paper" }}>
+    <Stack sx={{ width: "100%", maxWidth: 200, bgcolor: "background.paper" }}>
       <Typography
-        variant="h4"
+        variant="h6"
         component="div"
         gutterBottom
         sx={{ textAlign: "center" }}
       >
-        Piscine
+        User {dice_count}
       </Typography>
       <List>
-        {piscines.map((piscine, index) => {
+        {users.map((user, index) => {
           return (
-            <ListItem>
+            <ListItem key={index}>
               <Accordion style={{ width: "100%" }}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography>{piscine.name}</Typography>
+                  <Typography>{user.nickname}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <div
@@ -54,8 +58,13 @@ const Piscine = ({ userId }) => {
                       flexDirection: "column",
                     }}
                   >
-                    <pre>{JSON.stringify(piscine, null, 2)}</pre>
+                    <pre>{JSON.stringify(user, null, 2)}</pre>
                     <br />
+                    {/* <DetailMenu
+                      clickHandler={() => {
+                        setUserId(user.user_id);
+                      }}
+                    /> */}
                   </div>
                 </AccordionDetails>
               </Accordion>
@@ -67,4 +76,4 @@ const Piscine = ({ userId }) => {
   );
 };
 
-export default Piscine;
+export default User;

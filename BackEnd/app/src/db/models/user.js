@@ -75,6 +75,21 @@ async function getByUserId(user_id) {
   });
 }
 
+async function getByDiceCount(dice_count) {
+  return await User.findAll({
+    attributes: [
+      'user_id',
+      'nickname',
+      'dice_count',
+      'highest_score',
+      'win_count',
+      'lose_count',
+    ],
+    where: { dice_count },
+    raw: true,
+  });
+}
+
 async function getByFirebaseUid(firebase_uid) {
   return await User.findOne({
     attributes: [
@@ -127,16 +142,10 @@ async function update(
   );
 }
 
-async function remove(user_id) {
-  return User.destroy({
-    where: { user_id },
-  });
-}
-
 export const UserModel = {
   getByFirebaseUid,
+  getByDiceCount,
   getByUserId,
   create,
   update,
-  remove,
 };

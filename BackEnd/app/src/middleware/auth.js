@@ -1,3 +1,3 @@
 import passport from 'passport';
 
-export const Auth = passport.authenticate('jwt', { session: false });
+export const Auth = passport.authenticate('firebase-jwt', { session: false });

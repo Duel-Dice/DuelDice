@@ -26,7 +26,7 @@ app.use(morgan('tiny'));
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // 폼으로 넘어오는 데이터를 처리하는 것
+app.use(express.urlencoded({ extended: true }));
 
 app.use(passport.initialize());
 passport.use(passportStrategy.JWT);

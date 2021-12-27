@@ -1,19 +1,18 @@
-import passportJWT from 'passport-jwt';
-import config from '../config/index.js';
+import firebaseJWT from 'passport-firebase-jwt';
 import { UserService } from '../services/user.js';
+import { firebaseAuth } from './firebase.js';
 
-const ExtractJwt = passportJWT.ExtractJwt;
-const JwtStrategy = passportJWT.Strategy;
+const ExtractJwt = firebaseJWT.ExtractJwt;
+const JwtStrategy = firebaseJWT.Strategy;
 
 export const JWT = new JwtStrategy(
   {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: config.jwt.secret,
   },
   async function (jwt_payload, done) {
-    console.log('payload received', jwt_payload);
     try {
-      const user = await UserService.getUser(jwt_payload.user_id);
+      const firebase_uid = await firebaseAuth(jwt_payload);
+      const user = await UserService.loginUser(firebase_uid);
 
       done(null, user);
     } catch (error) {

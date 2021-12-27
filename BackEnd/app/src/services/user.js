@@ -17,13 +17,8 @@ async function loginUser(firebase_uid) {
   return user;
 }
 
-// Firebase_uid 가 날조되어있다면, 감지할 방법이 없다.
 async function registerUser(firebase_uid, nickname) {
   return await UserModel.create(firebase_uid, nickname);
-}
-
-async function unregisterUser(user_id) {
-  return await UserModel.remove(user_id);
 }
 
 async function updateUserNickname(user_id, nickname) {
@@ -34,6 +29,5 @@ export const UserService = {
   getUser,
   loginUser,
   registerUser,
-  unregisterUser,
   updateUserNickname,
 };

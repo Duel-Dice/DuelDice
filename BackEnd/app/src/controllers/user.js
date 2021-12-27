@@ -1,39 +1,29 @@
-import jwt from 'jsonwebtoken';
-import config from '../config/index.js';
 import { UserService } from '../services/user.js';
+import { firebaseAuth } from '../modules/firebase.js';
+import ApiError from '../modules/error.js';
 
 async function getUser(req, res, next) {
   const user_id = req.params.user_id || req.user.user_id;
+
+  if (user_id == req.user.user_id) return res.status(200).json(req.user);
 
   const user = await UserService.getUser(user_id);
 
   return res.status(200).json(user);
 }
 
-async function loginUser(req, res, next) {
-  const { firebase_uid } = req.body;
-
-  const user = await UserService.loginUser(firebase_uid);
-  const token = jwt.sign({ user_id: user.user_id }, config.jwt.secret);
-
-  return res.status(200).json({ token });
-}
-
-// 이미 로그인되어있다면?
 async function registerUser(req, res, next) {
-  const { firebase_uid, nickname } = req.body;
+  const { firebase_jwt, nickname } = req.body;
+
+  const firebase_uid = await firebaseAuth(firebase_jwt);
+
+  const exist_user = await UserService.loginUser(firebase_uid).catch(err => {});
+  if (exist_user)
+    throw new ApiError(403, `User already exist: ${firebase_uid}`);
 
   const user = await UserService.registerUser(firebase_uid, nickname);
 
   return res.status(200).json(user);
-}
-
-async function unregisterUser(req, res, next) {
-  const { user_id } = req.user;
-
-  await UserService.unregisterUser(user_id);
-
-  return res.sendStatus(200);
 }
 
 async function updateUserNickname(req, res, next) {
@@ -47,8 +37,6 @@ async function updateUserNickname(req, res, next) {
 
 export const UserController = {
   getUser,
-  loginUser,
   registerUser,
-  unregisterUser,
   updateUserNickname,
 };
