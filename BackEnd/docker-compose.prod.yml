@@ -19,8 +19,9 @@ services:
         build:
             context: ./admin
             dockerfile: Dockerfile.prod
-        env_file:
-            - ./admin/env/.env.production
+            args:
+                PUBLIC_URL: $PUBLIC_URL
+                REACT_APP_BASE: $REACT_APP_BASE
         platform: linux/amd64
         restart: always
         networks:
@@ -33,7 +34,7 @@ services:
         platform: linux/amd64
         restart: always
         volumes:
-            - ./app/env:/usr/src/app/env
+            - ./app/env/.env.production:/usr/src/app/env/.env.production
         networks:
             - default
 

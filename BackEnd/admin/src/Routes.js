@@ -4,7 +4,7 @@ import UserPage from "./UserPage/Main";
 
 const Routes = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.REACT_APP_BASE}>
       <Switch>
         <Route exact path="/" component={UserPage} />
         <Route exact path="/user" component={UserPage} />

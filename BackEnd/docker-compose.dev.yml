@@ -36,6 +36,8 @@ services:
         build:
             context: ./app
             dockerfile: Dockerfile.dev
+        env_file:
+            - ./app/env/.env.development
         platform: linux/amd64
         restart: always
         stdin_open: true

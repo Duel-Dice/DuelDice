@@ -2,7 +2,9 @@ FROM node:14.18.2-alpine as build
 
 WORKDIR /app
 
-ENV PATH /app/node_modules/.bin:$PATH
+ENV NODE_ENV=production
+ENV PUBLIC_URL="https://heyinsa.kr/dueldice/admin"
+ENV REACT_APP_BASE="/dueldice/admin"
 
 COPY package*.json ./
 
