@@ -10,6 +10,11 @@ export default () => {
   router.use('/auth', AuthRouter);
   router.use('/users', UserRouter);
   router.use('/duels', DuelRouter);
+  router.get('/', 
+  async function getUser(req, res, next) {
+    return res.send("hihihihihihi");
+  }
+  )
 
   return router;
 };
