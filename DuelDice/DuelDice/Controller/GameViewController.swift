@@ -8,36 +8,47 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
-import Alamofire
 
 
 
 class GameViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var statusViewOther: UIImageView!
-    @IBOutlet weak var statusViewMy: UIImageView!
+    @IBOutlet weak var otherScore: UILabel!
+    @IBOutlet weak var otherProgress: UILabel!
+    @IBOutlet weak var myScore: UILabel!
+    @IBOutlet weak var myProgress: UILabel!
+    @IBOutlet weak var halfRoll: UIButton!
+    @IBOutlet weak var fullRoll: UIButton!
     
+    var me = Player()
     let play = Play()
-    let windowMy = Graph(frame: CGRect(), bgColor: UIColor.systemYellow)
-    let windowOther = Graph(frame: CGRect(), bgColor: UIColor.systemBrown)
+    let timer = DiceTimer()
+    let netStatus = NetStatus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let manager = Alamofire.NetworkReachabilityManager(), manager.isReachable else {
+        guard netStatus.isReachable() else {
             DEBUG_LABEL_TEXT(content: "--- [NET ERR] ---")
-#if DEBUG
-            print("--- [NETWORK ERROR] ---")
-#endif
             return
         }
         
-        constraintWindow(child: windowMy, parent: statusViewMy)
-        constraintWindow(child: windowOther, parent: statusViewOther)
-        
-        play.requestBegin()
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: {token, error in
+            if error != nil { assert (false) }
+            let uid = Auth.auth().currentUser?.uid ?? ""
+            
+            self.me.detailData(uid: uid)
+            self.me.detailData(token: token!)
+        })
+
+        me.attach(self)
+
+        timer.attach(self)
+        timer.beginTimer()
+
         play.attach(self)
+        play.requestBegin()
     }
 }
 
@@ -45,52 +56,52 @@ class GameViewController: UIViewController {
 
 extension GameViewController {
     
-    func constraintWindow(child : Graph, parent: UIImageView) {
-        child.translatesAutoresizingMaskIntoConstraints = false
-        parent.addSubview(child)
-        child.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
-        child.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
-        child.heightAnchor.constraint(equalToConstant: parent.bounds.height).isActive = true
-        child.widthAnchor.constraint(equalToConstant: parent.bounds.width).isActive = true
-    }
 }
 
 // MARK: - Play(implement IObserver)
 
 extension GameViewController: IObserver {
     
-    func update<Play>(subject: Play) {
-#if DEBUG
-        print("DEBUG: update~~")
-        print("DEBUG: \(String(describing: play.requestResult?.dice1))")
-        print("DEBUG: \(String(describing: play.requestResult?.dice2))")
+    func update<T>(subject: T) {
+        if subject is Play      { updatePlay() }
+        if subject is Player    { updatePlayer() }
+        if subject is DiceTimer { updateTimer() }
+    }
+    
+    func updatePlayer() {
+        guard me.detail.accessToken != nil else { return }
+    }
+    
+    func updatePlay() {
         guard play.requestResult != nil else {
-            if Alamofire.NetworkReachabilityManager() == nil {
-                DEBUG_LABEL_TEXT(content: "--- [AF RMAN ERR] ---")
-                print("--- [AF RMAN ERR] ---")
-            }
-            else if Alamofire.NetworkReachabilityManager()!.isReachable {
-                DEBUG_LABEL_TEXT(content: "--- [TIME OUT] ---")
-                print("--- [TIME OUT] ---")
-            }
-            else {
-                DEBUG_LABEL_TEXT(content: "--- [NET ERR] ---")
-                print("--- [NETWORK ERROR] ---")
-            }
+            netStatus.dispose { message in DEBUG_LABEL_TEXT(content: message) }
             return
         }
+
+        var score1 = 0
+        var score2 = 0
+        play.requestResult?.dice1.enumerated().forEach({ (index, item) in score1 += item * (index + 1) })
+        play.requestResult?.dice2.enumerated().forEach({ (index, item) in score2 += item * (index + 1) })
         
-        DEBUG_LABEL_TEXT(content: "--- [DONE] ---")
-        print("--- [DONE] ---")
-#endif
+        otherScore.text = String(score1)
+        myScore.text = String(score2)
+
+        timer.endTimer()
+    }
+    
+    func updateTimer() {
+        let current: Int = timer.finish ? 0 : Int(DICE_TIMER_TIMEOUT * 10) - Int(floor(timer.time * 10))
         
-        windowMy.set(animation: true)
-        windowMy.set(diceNumber: play.requestResult!.dice1) // fix compare uid
-        windowMy.reDraw()
+        if current == 0 {
+            timer.endTimer()
+            play.requestEnd(data: nil)
+        }
         
-        windowOther.set(animation: true)
-        windowOther.set(diceNumber: play.requestResult!.dice2) // fix compare uid
-        windowOther.reDraw()
+        let minutes:Int = (current / 10) / 60
+        let seconds:Int = (current / 10) % 60
+        let mseconds:Int = current % 10
+        let text:String = String(format:"%02d", minutes) + " : " + String(format: "%02d", seconds) + String(" : ") + String(format: "%01d", mseconds)
+        DEBUG_LABEL_TEXT(content: text)
     }
 }
 
