@@ -33,6 +33,7 @@ class SignViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+    // TODO: scenedelegate에서 로그인 유저 로그인 되어 있으면 바로 clientview로, 아니면 signview로 보내기
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Self.showClientSegueIdentifier,
