@@ -1,0 +1,87 @@
+paths:
+  /api/meeting:
+    post:
+      tags:
+        - 모임
+      summary: 모임을 만듭니다.
+      description: >
+        새로운 모임을 만듭니다.
+      requestBody:
+        description: 모임 정보
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetingAllInput'
+
+  /api/meeting/{id}:
+    delete:
+      tags:
+        - 모임
+      summary: 모임을 삭제합니다.
+      description: >
+        모임을 삭제합니다. <br>
+        주어진 id의 모임을 삭제합니다.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: 모임 아이디
+      responses:
+        '200':
+          description: 모임 아이디가 삭제 되었습니다.
+        '404':
+          description: 존재하지 않는 유저입니다.
+
+components:
+  schemas:
+    MeetingAllInput:
+      required:
+        - title
+        - text
+        - start_time
+        - end_time
+        - address
+        - address_detail
+        - max_attendee
+        - latitude
+        - longitude
+        - type
+        - state
+      properties:
+        title:
+          type: string
+          description: 제목
+        content:
+          type: string
+          description: 내용
+        start_time:
+          type: integer
+          description: 모임이 시작하는 시간
+        end_time:
+          type: integer
+          description: 모임이 끝나는 시간
+        address:
+          type: string
+          description: 지번 주소
+        address_detail:
+          type: string
+          description: 상세 주소
+        max_attendee:
+          type: integer
+          description: 최대 참석자 수
+        latitude:
+          type: number
+          description: 위도
+        longitude:
+          type: number
+          description: 경도
+        type:
+          type: integer
+          description: 핀 종류
+        state:
+          type: integer
+          description: 핀 상태
+
