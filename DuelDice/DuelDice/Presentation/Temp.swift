@@ -10,8 +10,9 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 import FBSDKLoginKit
+import Alamofire
 
-class SignViewController: UIViewController {
+class Temp: UIViewController {
     static let showClientSegueIdentifier = "ShowClientDetailSegue"
     
 //    @IBOutlet var googleSignInButton: GIDSignInButton!
@@ -100,7 +101,7 @@ class SignViewController: UIViewController {
         }
     }
     
-    private func firebaseSignIn(with credential: AuthCredential, _ sender: Any) {
+    private func firebaseSignIn(with credential: AuthCredential, _ sender: Any)  {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 print("Firebase(with Google) sign in error: \(error)")
@@ -141,7 +142,7 @@ class SignViewController: UIViewController {
     }
 }
 
-extension SignViewController: LoginButtonDelegate {
+extension Temp: LoginButtonDelegate {
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
@@ -160,9 +161,10 @@ extension SignViewController: LoginButtonDelegate {
 
 // Button Actions
 // Email, Google, Phone, Facebook, Github
-extension SignViewController {
+extension Temp {
 //    @IBAction func googleSignInButtonTabbed(_ sender: Any) {
-    @objc func googleSignInButtonTabbed(_ sender: UIButton!) {
+
+    @objc func googleSignInButtonTabbed(_ sender: UIButton!)  {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
         let config = GIDConfiguration(clientID: clientID)
@@ -182,6 +184,7 @@ extension SignViewController {
 
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                          accessToken: authentication.accessToken)
+            
             firebaseSignIn(with: credential, sender!)
         }
     }
@@ -234,7 +237,7 @@ extension SignViewController {
 
 // Anonymous Signin
 //
-//extension SignViewController {
+//extension Temp {
 //    func firebaseAnonymousSignIn() {
 //        Auth.auth().signInAnonymously { authResult, error in
 //            guard let user = authResult?.user else {

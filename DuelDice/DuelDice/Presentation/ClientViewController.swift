@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import Alamofire
 
 class ClientViewController: UIViewController {
     typealias ViewChangeAction = () -> Void
@@ -48,15 +49,42 @@ class ClientViewController: UIViewController {
     }
     
     @IBAction func delUserButtonTabbed(_ sender: Any) {
-        let user = Auth.auth().currentUser
+//        let user = Auth.auth().currentUser
+//
+//        user?.delete { error in
+//          if let error = error {
+//            print("User delete error: \(error)")
+//          } else {
+//            print("User Account Deleted!")
+//          }
+//        }
+        func post(with idToken: String) {
+            let apiURL = "https://skyrich3.synology.me:7780/dueldice/dev/api/auth/login"
+            let param: Parameters = [
+                "firebase_jwt": idToken
+                ]
+            AF.request(apiURL, method: .post, parameters: param, encoding: URLEncoding.httpBody) .validate(statusCode: 200..<300).responseString() { response in
+                switch response.result {
+                case .success:
+                    print("success")
 
-        user?.delete { error in
-          if let error = error {
-            print("User delete error: \(error)")
-          } else {
-            print("User Account Deleted!")
-          }
+                case .failure(let error):
+                    print(error)
+                    return
+                }
+            }
         }
+
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            guard let idToken = idToken else { return }
+            if let error = error {
+              // Handle error
+              return;
+            }
+            post(with: idToken)
+        }
+
     }
     
 }
