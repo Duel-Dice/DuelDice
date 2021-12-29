@@ -13,7 +13,7 @@ const User = ({ dice_count }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const url = `https://skyrich3.synology.me:7780/dueldice/dev/api/statics/users/${dice_count}`;
+    const url = `https://skyrich3.synology.me:7780/dueldice/dev/api/statistic/users/${dice_count}`;
 
     axios
       .get(url)

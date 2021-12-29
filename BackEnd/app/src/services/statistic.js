@@ -6,6 +6,6 @@ async function getUser(dice_count) {
   return users;
 }
 
-export const StaticsService = {
+export const StatisticService = {
   getUser,
 };

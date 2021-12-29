@@ -5,7 +5,7 @@ import User from "./User";
 
 const dice_counts = [1, 2, 4, 8, 16];
 
-const UserStaticsPage = () => {
+const UserstatisticPage = () => {
   return (
     <Stack
       direction="row"
@@ -18,4 +18,4 @@ const UserStaticsPage = () => {
   );
 };
 
-export default UserStaticsPage;
+export default UserstatisticPage;
