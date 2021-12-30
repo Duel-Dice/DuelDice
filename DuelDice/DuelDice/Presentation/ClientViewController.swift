@@ -10,20 +10,44 @@ import FirebaseAuth
 import GoogleSignIn
 import Alamofire
 
+var nickname_ex: String = "skysky"
+var diceCount_ex: String = "16"
+var highestScore_ex: String = "32"
+var winCount_ex: String = "10"
+var loseCount_ex: String = "4"
+
 class ClientViewController: UIViewController {
     typealias ViewChangeAction = () -> Void
     
     @IBOutlet var signOutButton: UIButton!
     @IBOutlet var delUserButton: UIButton!
-    @IBOutlet var titleLabel: UILabel!
 
     private var data: String?
 
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nickname: UILabel!
+    @IBOutlet weak var diceCount: UILabel!
+    @IBOutlet weak var highestScore: UILabel!
+    @IBOutlet weak var winCount: UILabel!
+    @IBOutlet weak var loseCount: UILabel!
     override func viewDidLoad() {
+
         super.viewDidLoad()
-//        titleLabel.text = data.description
+        
+        titleLabel.text = "🎲 DuelDice"
+        
+        // Do any additional setup after loading the view.
+        nickname.text = "nickname: \(nickname_ex)"
+        diceCount.text = "dice_count: \(diceCount_ex)"
+        highestScore.text = "highest_score: \(highestScore_ex)"
+        winCount.text = "win_count: \(winCount_ex)"
+        loseCount.text = "lose_count: \(loseCount_ex)"
     }
+    
+    
+    
+    
     
     func configure(with data: String, changeAction: @escaping ViewChangeAction) {
         print(data)
