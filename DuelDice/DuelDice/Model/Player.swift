@@ -7,6 +7,39 @@
 
 import Foundation
 
+class Player {
+    
+    lazy var observerArray = [IObserver]()
+    var detail = User()
+}
+
+// MARK: - Player(implement IObserved)
+
+extension Player: IObserved {
+    
+    func attach(_ observer: IObserver) { observerArray.append(observer) }
+    
+    func detach(_ observer: IObserver) {
+        if let idx = observerArray.firstIndex(where: { $0 === observer }) {
+            observerArray.remove(at: idx)
+        }
+    }
+    
+    func notify() { observerArray.forEach({ $0.update(subject: self)}) }
+}
+
+// MARK: - Set User Property
+
+extension Player {
+    func detailData(uid: String)        { detail.userId = uid }
+    func detailData(token: String)      { detail.accessToken = token }
+    func detailData(nick: String)       { detail.nickName = nick }
+    func detailData(diceAmount: Int)    { detail.diceAmount = diceAmount }
+    func detailData(highestScore: Int)  { detail.highestScore = highestScore }
+    func detailData(winCount: Int)      { detail.winCount = winCount }
+    func detailData(loseCount: Int)     { detail.loseCount = loseCount }
+}
+
 // MARK: - User
 
 //class Player: NSObject {

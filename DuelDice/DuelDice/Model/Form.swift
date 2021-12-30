@@ -8,13 +8,13 @@
 import Foundation
 
 struct User: Codable {
-    var userId: String
-    var accessToken: String
-    var nickName: String
-    var diceAmount: Int
-    var highestScore: Int
-    var winCount: Int
-    var loseCount: Int
+    var userId: String?
+    var accessToken: String?
+    var nickName: String?
+    var diceAmount: Int?
+    var highestScore: Int?
+    var winCount: Int?
+    var loseCount: Int?
 }
 
 struct Duel: Codable {
@@ -27,3 +27,19 @@ struct Duel: Codable {
     var status2: Int
     var isDone: Bool
 }
+
+struct Login: Codable {
+    let firebase_uid: String
+}
+
+struct Register: Codable {
+    let firebase_uid: String
+    let nickname: String
+}
+
+
+struct Nickname: Codable {
+    let nickname: String
+}
+
+

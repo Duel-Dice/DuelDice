@@ -10,8 +10,7 @@ import Alamofire
 
 
 
-class Play : IObserved {
-    
+class Play: IObserved {
     static var requestEnable = true
     static var requestCount = 0
 
@@ -43,14 +42,8 @@ class Play : IObserved {
             self.notify()
             return
         }
-#if DEBUG
-        print("DEBUG: pass \(NETWORK_REQUEST_INTERVAL) sec")
-#endif
         guard !isTimeout() else {
             self.requestEnd(data: nil)
-#if DEBUG
-            print("DEBUG: TimeOut")
-#endif
             self.notify()
             return
         }
@@ -59,9 +52,6 @@ class Play : IObserved {
             let duel = self.TEST_DUEL_DATA()
 
             if duel.isDone {
-#if DEBUG
-                print("DEBUG: done")
-#endif
                 self.requestEnd(data: duel)
                 self.notify()
             }
@@ -76,14 +66,12 @@ class Play : IObserved {
     func isOnline() -> Bool {
         return Alamofire.NetworkReachabilityManager()?.isReachable ?? false
     }
-    
 }
 
 
 // MARK: - Play(implement IObserved)
 
 extension Play {
-
     func attach(_ observer: IObserver) { observerArray.append(observer) }
 
     func detach(_ observer: IObserver) {
@@ -93,8 +81,14 @@ extension Play {
     }
 
     func notify() { observerArray.forEach({ $0.update(subject: self)}) }
-    
 }
+
+
+
+
+
+
+
 
 // MARK: - TEST
 
