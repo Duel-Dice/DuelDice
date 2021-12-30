@@ -24,6 +24,7 @@ class RankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "RankCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
     }
     
 
@@ -35,11 +36,12 @@ extension RankViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
-        //SHOULD BE SORTED BY DICEAMOUNT
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! RankCell
         users.sort(by: {$0.diceAmount ?? 0 > $1.diceAmount ?? 0})
-        cell.textLabel?.text = users[indexPath.row].userId
-//        cell.detailTextLabel?.text = String(users[indexPath.row].diceAmount ?? 0)
+        cell.userIdLabel.text = users[indexPath.row].userId
+        cell.diceAmountLabel.text = "\(users[indexPath.row].diceAmount ?? 0)"
+        cell.rankLabel.text = "\(indexPath.row+1)"
+
         return cell
     }
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
