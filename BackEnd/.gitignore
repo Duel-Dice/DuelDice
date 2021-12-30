@@ -17,6 +17,7 @@ temp
 
 .vscode
 db/data
+db/data_dev
 
 # Runtime data
 pids

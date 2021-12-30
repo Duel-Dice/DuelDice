@@ -34,7 +34,7 @@ services:
     platform: linux/amd64
     restart: always
     volumes:
-      - ./app/env/.env.production:/usr/src/app/env/.env.production
+      - ./app/env:/usr/src/app/env
     networks:
       - default
 
