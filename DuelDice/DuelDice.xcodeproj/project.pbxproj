@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AA84048277E1886000C1534 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA84047277E1886000C1534 /* RankViewController.swift */; };
+		3AA8404B277E2931000C1534 /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA84049277E2931000C1534 /* RankCell.swift */; };
+		3AA8404C277E2931000C1534 /* RankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA8404A277E2931000C1534 /* RankCell.xib */; };
 		694E04FD277CB5400048FEE4 /* NetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E04FC277CB5400048FEE4 /* NetStatus.swift */; };
 		694E04FF277CBA690048FEE4 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E04FE277CBA690048FEE4 /* Timer.swift */; };
 		69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA4E4F27610C1E00D8D80B /* Defines.swift */; };
@@ -56,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		20F062A427DBB0A8442D3D30 /* Pods-DuelDiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDiceTests.debug.xcconfig"; path = "Target Support Files/Pods-DuelDiceTests/Pods-DuelDiceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3AA84047277E1886000C1534 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
+		3AA84049277E2931000C1534 /* RankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
+		3AA8404A277E2931000C1534 /* RankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankCell.xib; sourceTree = "<group>"; };
 		446A8CE656941B510797F86A /* Pods-DuelDiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDiceTests.release.xcconfig"; path = "Target Support Files/Pods-DuelDiceTests/Pods-DuelDiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A930F7E117CEC66D6BAB4F7 /* Pods-DuelDice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice.debug.xcconfig"; path = "Target Support Files/Pods-DuelDice/Pods-DuelDice.debug.xcconfig"; sourceTree = "<group>"; };
 		653B4B556472409016EC8BC7 /* Pods-DuelDice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice.release.xcconfig"; path = "Target Support Files/Pods-DuelDice/Pods-DuelDice.release.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +244,7 @@
 			children = (
 				90A5AE432726A61800992192 /* Main.storyboard */,
 				90A5AE782727CF4300992192 /* Client.storyboard */,
+				3AA8404A277E2931000C1534 /* RankCell.xib */,
 				90A5787E272DD6B900BD2860 /* Game.storyboard */,
 			);
 			path = View;
@@ -250,6 +257,8 @@
 				90581263277C36CB00E17EEE /* SignIn */,
 				90581261277C339100E17EEE /* Temp.swift */,
 				90A5AE742727CCA900992192 /* ClientViewController.swift */,
+				3AA84047277E1886000C1534 /* RankViewController.swift */,
+				3AA84049277E2931000C1534 /* RankCell.swift */,
 				90A5AE762727CE0D00992192 /* GameViewController.swift */,
 			);
 			path = Presentation;
@@ -394,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A5AE792727CF4300992192 /* Client.storyboard in Resources */,
+				3AA8404C277E2931000C1534 /* RankCell.xib in Resources */,
 				90A5AE4A2726A61900992192 /* LaunchScreen.storyboard in Resources */,
 				90A5AE472726A61900992192 /* Assets.xcassets in Resources */,
 				90A5787F272DD6B900BD2860 /* Game.storyboard in Resources */,
@@ -529,6 +539,7 @@
 				90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */,
 				694E04FD277CB5400048FEE4 /* NetStatus.swift in Sources */,
 				69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */,
+				3AA8404B277E2931000C1534 /* RankCell.swift in Sources */,
 				69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */,
 				694E04FF277CBA690048FEE4 /* Timer.swift in Sources */,
 				90A5AE722727C31B00992192 /* Player.swift in Sources */,
@@ -540,6 +551,7 @@
 				90581266277C36F400E17EEE /* PaddingLabel.swift in Sources */,
 				90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */,
 				9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */,
+				3AA84048277E1886000C1534 /* RankViewController.swift in Sources */,
 				90581262277C339100E17EEE /* Temp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
