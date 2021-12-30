@@ -14,10 +14,10 @@ class RankViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var users: [User] = [
-        User(userId: "suhshin", diceAmount: 512),
+        User(userId: "suhshin", diceAmount: 256),
         User(userId: "ycha", diceAmount: 128),
         User(userId: "echung", diceAmount: 128),
-        User(userId: "kyuhkim", diceAmount: 256)
+        User(userId: "kyuhkim", diceAmount: 512)
 
     ]
     
@@ -37,6 +37,7 @@ extension RankViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
         //SHOULD BE SORTED BY DICEAMOUNT
+        users.sort(by: {$0.diceAmount ?? 0 > $1.diceAmount ?? 0})
         cell.textLabel?.text = users[indexPath.row].userId
 //        cell.detailTextLabel?.text = String(users[indexPath.row].diceAmount ?? 0)
         return cell
