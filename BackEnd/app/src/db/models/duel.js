@@ -56,7 +56,6 @@ export const Duel = Sequelize.define(
   {
     freezeTableName: true,
     underscored: true,
-    timestamps: false,
   },
 );
 
@@ -78,6 +77,7 @@ async function getHistoryByUserId(user_id) {
       [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
       is_done: true,
     },
+    order: [['created_at', 'DESC']],
     raw: true,
   });
 }
