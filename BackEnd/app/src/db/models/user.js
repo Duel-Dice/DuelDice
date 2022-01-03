@@ -119,22 +119,13 @@ async function create(firebase_uid, nickname) {
 
 // 존재하지 않는 값이 들어오면 어떻게 되나?
 //User.update 앞에 await 들어가야하나?
-// return 값이 user 가 맞는지...?
-async function update(
+async function updateNickname(
   user_id, //
   nickname,
-  dice_count,
-  highest_score,
-  win_count,
-  lose_count,
 ) {
   return User.update(
     {
       nickname, //
-      dice_count,
-      highest_score,
-      win_count,
-      lose_count,
     },
     {
       where: { user_id },
@@ -147,5 +138,5 @@ export const UserModel = {
   getByDiceCount,
   getByUserId,
   create,
-  update,
+  updateNickname,
 };

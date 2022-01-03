@@ -20,12 +20,11 @@ async function getDuel(duel_id) {
 
 const match_pull = [];
 
-function isInPull(user_id) {
-  return match_pull.includes(user_id);
-}
-
 async function startMatching(user_id, dice_num) {
-  if (isInPull(user_id) || (await DuelModel.getActiveByUserId(user_id)))
+  if (
+    match_pull[dice_num] == user_id ||
+    (await DuelModel.getActiveByUserId(user_id))
+  )
     throw new ApiError(403, `Already Started`);
 
   if (!match_pull[dice_num]) {
@@ -37,6 +36,7 @@ async function startMatching(user_id, dice_num) {
   const player_2_id = user_id;
   const player_1_left = (await UserModel.getByUserId(player_1_id)).dice_count;
   const player_2_left = (await UserModel.getByUserId(player_2_id)).dice_count;
+  match_pull[dice_num] = null;
 
   await DuelModel.create(
     player_1_id,

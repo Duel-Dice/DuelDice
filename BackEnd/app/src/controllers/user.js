@@ -12,6 +12,14 @@ async function getUser(req, res, next) {
   return res.status(200).json(user);
 }
 
+async function getUserHistory(req, res, next) {
+  const { user_id } = req.user;
+
+  const history = await UserService.getUserHistory(user_id);
+
+  return res.status(200).json(history);
+}
+
 async function registerUser(req, res, next) {
   const { firebase_jwt, nickname } = req.body;
 
@@ -37,6 +45,7 @@ async function updateUserNickname(req, res, next) {
 
 export const UserController = {
   getUser,
+  getUserHistory,
   registerUser,
   updateUserNickname,
 };

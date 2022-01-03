@@ -73,7 +73,7 @@ async function getActiveByUserId(user_id) {
 }
 
 async function getHistoryByUserId(user_id) {
-  return await Duel.findOne({
+  return await Duel.findAll({
     where: {
       [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
       is_done: true,
