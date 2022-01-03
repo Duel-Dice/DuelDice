@@ -19,7 +19,15 @@ async function getDuel(duel_id) {
 }
 
 const match_pull = [];
+
+function isInPull(user_id) {
+  return match_pull.includes(user_id);
+}
+
 async function startMatching(user_id, dice_num) {
+  if (isInPull(user_id) || (await DuelModel.getActiveByUserId(user_id)))
+    throw new ApiError(403, `Already Started`);
+
   if (!match_pull[dice_num]) {
     match_pull[dice_num] = user_id;
     return;
