@@ -72,6 +72,16 @@ async function getActiveByUserId(user_id) {
   });
 }
 
+async function getHistoryByUserId(user_id) {
+  return await Duel.findOne({
+    where: {
+      [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
+      is_done: true,
+    },
+    raw: true,
+  });
+}
+
 async function getByDuelId(duel_id) {
   return await Duel.findOne({
     where: { duel_id },
@@ -122,6 +132,7 @@ async function update(
 
 export const DuelModel = {
   getActiveByUserId,
+  getHistoryByUserId,
   getByDuelId,
   create,
   update,

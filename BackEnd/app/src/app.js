@@ -16,12 +16,7 @@ import * as db from './db/database.js';
 
 const app = express();
 
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  }),
-);
+app.use(cors({}));
 app.use(morgan('tiny'));
 app.use(helmet());
 app.use(cookieParser());
