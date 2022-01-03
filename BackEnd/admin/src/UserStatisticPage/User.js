@@ -1,19 +1,21 @@
 import { React, useState, useEffect } from "react";
-import axios from "axios";
-import Stack from "@mui/material/Stack";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import {
+  Stack,
+  List,
+  ListItem,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Typography from "@mui/material/Typography";
+import axios from "axios";
 
-const User = ({ dice_count }) => {
+const User = ({ baseUrl, diceCount }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const url = `https://skyrich3.synology.me:7780/dueldice/dev/api/statistic/users/${dice_count}`;
+    const url = `${baseUrl}/api/statistics/users/${diceCount}`;
 
     axios
       .get(url)
@@ -27,7 +29,7 @@ const User = ({ dice_count }) => {
       .catch((error) => {
         console.log(`${url} 호출 실패!`);
       });
-  }, [dice_count]);
+  }, [baseUrl, diceCount]);
 
   return (
     <Stack sx={{ width: "100%", maxWidth: 200, bgcolor: "background.paper" }}>
@@ -37,7 +39,7 @@ const User = ({ dice_count }) => {
         gutterBottom
         sx={{ textAlign: "center" }}
       >
-        User {dice_count}
+        User {diceCount}
       </Typography>
       <List>
         {users.map((user, index) => {

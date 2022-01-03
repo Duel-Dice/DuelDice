@@ -7,7 +7,7 @@ import DuelRouter from './duel.js';
 export default () => {
   const router = Router();
 
-  router.use('/statistic', StatisticRouter);
+  router.use('/statistics', StatisticRouter);
   router.use('/users', UserRouter);
   router.use('/duels', DuelRouter);
 
