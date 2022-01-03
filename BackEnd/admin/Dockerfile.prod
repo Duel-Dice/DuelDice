@@ -3,8 +3,8 @@ FROM node:14.18.2-alpine as build
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PUBLIC_URL="https://heyinsa.kr/dueldice/admin"
-ENV REACT_APP_BASE="/dueldice/admin"
+ARG PUBLIC_URL
+ARG REACT_APP_BASE
 
 COPY package*.json ./
 
@@ -23,7 +23,7 @@ COPY --from=build /app/build  /var/www/html/static/
 
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 3000
 
 CMD ["nginx", "-g", "daemon off;"]
 

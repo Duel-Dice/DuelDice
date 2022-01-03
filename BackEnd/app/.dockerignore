@@ -11,3 +11,5 @@ Makefile
 docker-compose.yml
 README.md
 npm-debug.log
+.prettierrc.cjs
+.eslintrc.cjs
