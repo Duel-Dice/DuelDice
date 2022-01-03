@@ -1,9 +1,9 @@
 name: Build And Push Docker Image
 
 on:
-  pull_request:
-    branches: [ feature/backend_** ]
-    types: [ closed ]
+  push: 
+    branches:
+    - main
 
 jobs:
   build_proxy:
