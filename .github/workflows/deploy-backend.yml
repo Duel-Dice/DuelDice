@@ -3,7 +3,7 @@ name: Build And Push Docker Image
 on:
   push:
     branches:
-    - 'backend/**'
+    - 'feature/backend_**'
 
 jobs:
   build_proxy:
