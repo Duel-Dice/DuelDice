@@ -1,0 +1,93 @@
+name: Build And Push Docker Image
+
+on:
+  push:
+    branches:
+    - 'backend/**'
+
+jobs:
+  build_proxy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Proxy and Push
+      uses: docker/build-push-action@v2
+      with:
+        context: ./BackEnd/proxy
+        file: ./BackEnd/proxy/Dockerfile.prod
+        push: true
+        tags: petercha2000/dueldice:proxy
+
+  build_admin:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Admin and Push
+      uses: docker/build-push-action@v2
+      with:
+        context: ./BackEnd/admin
+        file: ./BackEnd/admin/Dockerfile.prod
+        push: true
+        tags: petercha2000/dueldice:admin
+        build-args: |
+            PUBLIC_URL=${{ secrets.PUBLIC_URL }}
+            REACT_APP_BASE=${{ secrets.REACT_APP_BASE }}
+
+  build_backend:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Backend and Push
+      uses: docker/build-push-action@v2
+      with:
+        context: ./BackEnd/app
+        file: ./BackEnd/app/Dockerfile.prod
+        push: true
+        tags: petercha2000/dueldice:backend
+
+  deploy:
+    needs: [build_proxy, build_admin, build_backend]
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          ./deploy-dueldice.sh
