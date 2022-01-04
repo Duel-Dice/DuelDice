@@ -30,7 +30,7 @@ async function rollHalf(req, res, next) {
   const get_roll_dice = dice_count => Math.ceil(dice_count / 2);
   const updated = await DuelService.rollDice(user_id, get_roll_dice);
 
-  return res.status(200).json(updated);
+  return res.sendStatus(200);
 }
 
 async function rollAll(req, res, next) {
@@ -39,7 +39,7 @@ async function rollAll(req, res, next) {
   const get_roll_dice = dice_count => dice_count;
   const updated = await DuelService.rollDice(user_id, get_roll_dice);
 
-  return res.status(200).json(updated);
+  return res.sendStatus(200);
 }
 
 export const DuelController = {

@@ -56,7 +56,6 @@ export const Duel = Sequelize.define(
   {
     freezeTableName: true,
     underscored: true,
-    timestamps: false,
   },
 );
 
@@ -68,6 +67,17 @@ async function getActiveByUserId(user_id) {
       [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
       is_done: false,
     },
+    raw: true,
+  });
+}
+
+async function getHistoryByUserId(user_id) {
+  return await Duel.findAll({
+    where: {
+      [Op.or]: [{ player_1_id: user_id }, { player_2_id: user_id }],
+      is_done: true,
+    },
+    order: [['created_at', 'DESC']],
     raw: true,
   });
 }
@@ -122,6 +132,7 @@ async function update(
 
 export const DuelModel = {
   getActiveByUserId,
+  getHistoryByUserId,
   getByDuelId,
   create,
   update,
