@@ -37,7 +37,7 @@ class SignViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Self.showClientSegueIdentifier,
-           let destination = segue.destination as? ClientViewController,
+           let destination = segue.destination as? GameWaitingRoom,
             let uid = uid {
             destination.configure(with: uid) {
                 print("\n\nview is changed!\n\n")

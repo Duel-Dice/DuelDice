@@ -16,7 +16,7 @@ var highestScore_ex: String = "32"
 var winCount_ex: String = "10"
 var loseCount_ex: String = "4"
 
-class ClientViewController: UIViewController {
+class GameWaitingRoom: UIViewController {
     typealias ViewChangeAction = () -> Void
     
     @IBOutlet var signOutButton: UIButton!
