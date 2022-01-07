@@ -67,6 +67,8 @@ final class GameWaitingRoomViewController: UIViewController {
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
+        // TODO: - storyboard init 고려 필요, Sign view에 한해서 스토리보드 사용하지 않을 수도 있음..!
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let signViewController = storyboard.instantiateViewController(withIdentifier: "SignViewController")
         self.navigationController?.pushViewController(signViewController, animated: true)
