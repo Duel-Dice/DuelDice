@@ -11,7 +11,7 @@
         <!--Sign View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignViewController" customModule="DuelDice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SignViewController" customModule="DuelDice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,26 +20,27 @@
                     </view>
                     <navigationItem key="navigationItem" id="rdj-aF-DEZ"/>
                     <connections>
-                        <segue destination="IZ3-cn-umQ" kind="show" identifier="ShowClientDetailSegue" id="GMX-Pg-hw2"/>
+                        <segue destination="mBc-hh-Ujc" kind="show" identifier="ShowGameWaitingRoomSegue" id="YdX-SP-snX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="134.59821428571428"/>
         </scene>
-        <!--ClientViewController-->
-        <scene sceneID="SHl-4b-MKZ">
+        <!--GameWaitingRoomViewController-->
+        <scene sceneID="aor-88-ftY">
             <objects>
-                <viewControllerPlaceholder storyboardName="Client" referencedIdentifier="ClientViewController" id="IZ3-cn-umQ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="VVe-ix-8aA"/>
+                <viewControllerPlaceholder storyboardIdentifier="GameWaitingRoomViewController" storyboardName="Client" referencedIdentifier="GameWaitingRoomViewController" id="mBc-hh-Ujc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3cL-oQ-2Pp"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sNh-e6-ziF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sY-DL-L4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="135"/>
+            <point key="canvasLocation" x="1866" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O0F-Zd-dwm">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c21-Gf-8b8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JoT-4E-Kg3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zxa-HP-bpx">
@@ -51,7 +52,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fPm-Hg-Ohk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c21-Gf-8b8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="134.59821428571428"/>
         </scene>

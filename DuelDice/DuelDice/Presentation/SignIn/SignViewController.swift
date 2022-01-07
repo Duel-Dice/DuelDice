@@ -12,8 +12,8 @@ import GoogleSignIn
 import FBSDKLoginKit
 import Alamofire
 
-class SignViewController: UIViewController {
-    static let showClientSegueIdentifier = "ShowClientDetailSegue"
+final class SignViewController: UIViewController {
+    static let showGameWaitingRoomSegueIdentifier = "ShowGameWaitingRoomSegue"
     
     // MARK: - Outlet
     
@@ -33,11 +33,10 @@ class SignViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
-    // TODO: scenedelegate에서 로그인 유저 로그인 되어 있으면 바로 clientview로, 아니면 signview로 보내기
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Self.showClientSegueIdentifier,
-           let destination = segue.destination as? GameWaitingRoom,
+        if segue.identifier == Self.showGameWaitingRoomSegueIdentifier,
+           let destination = segue.destination as? GameWaitingRoomViewController,
             let uid = uid {
             destination.configure(with: uid) {
                 print("\n\nview is changed!\n\n")
@@ -48,6 +47,7 @@ class SignViewController: UIViewController {
     // MARK: - Private
     
     private func configure() {
+        self.view.backgroundColor = .white
         self.configureSignInButton()
         self.configureTitleLabel()
         self.configureImageView()
@@ -103,13 +103,13 @@ class SignViewController: UIViewController {
     
     private func isSignInSuccess(with uid: String?) {
         self.uid = uid
-        performSegue(withIdentifier: Self.showClientSegueIdentifier, sender: self)
+        performSegue(withIdentifier: Self.showGameWaitingRoomSegueIdentifier, sender: self)
     }
 
     private func hasPreviousSignIn() {
         if let user = Auth.auth().currentUser {
             print("User is signed in. [\(user.uid)]")
-            performSegue(withIdentifier: Self.showClientSegueIdentifier, sender: self)
+            performSegue(withIdentifier: Self.showGameWaitingRoomSegueIdentifier, sender: self)
         } else {
             print("No user is signed in.")
         }
