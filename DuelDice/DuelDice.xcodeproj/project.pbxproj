@@ -21,6 +21,10 @@
 		90581262277C339100E17EEE /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90581261277C339100E17EEE /* Temp.swift */; };
 		90581266277C36F400E17EEE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90581265277C36F400E17EEE /* PaddingLabel.swift */; };
 		9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058126A277C384100E17EEE /* CGFloat+Extension.swift */; };
+		90760DBE2786AED6006848A5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DBD2786AED6006848A5 /* UserService.swift */; };
+		90760DC12786ECB7006848A5 /* APIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC02786ECB7006848A5 /* APIServiceType.swift */; };
+		90760DC32787088F006848A5 /* DuelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC22787088F006848A5 /* DuelService.swift */; };
+		90760DC527870C41006848A5 /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC427870C41006848A5 /* StatisticsService.swift */; };
 		90A5787F272DD6B900BD2860 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A5787E272DD6B900BD2860 /* Game.storyboard */; };
 		90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE3D2726A61800992192 /* AppDelegate.swift */; };
 		90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE3F2726A61800992192 /* SceneDelegate.swift */; };
@@ -77,6 +81,10 @@
 		90581261277C339100E17EEE /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		90581265277C36F400E17EEE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9058126A277C384100E17EEE /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		90760DBD2786AED6006848A5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		90760DC02786ECB7006848A5 /* APIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceType.swift; sourceTree = "<group>"; };
+		90760DC22787088F006848A5 /* DuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelService.swift; sourceTree = "<group>"; };
+		90760DC427870C41006848A5 /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
 		90A5787E272DD6B900BD2860 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		90A5AE3A2726A61800992192 /* DuelDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuelDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A5AE3D2726A61800992192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +191,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		90760DBC2786AEC6006848A5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				90760DC02786ECB7006848A5 /* APIServiceType.swift */,
+				90760DBD2786AED6006848A5 /* UserService.swift */,
+				90760DC22787088F006848A5 /* DuelService.swift */,
+				90760DC427870C41006848A5 /* StatisticsService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		90A5AE312726A61800992192 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +227,7 @@
 		90A5AE3C2726A61800992192 /* DuelDice */ = {
 			isa = PBXGroup;
 			children = (
+				90760DBC2786AEC6006848A5 /* Network */,
 				69DCB9ED275EA921009D5F1A /* Interface */,
 				90A5AE3D2726A61800992192 /* AppDelegate.swift */,
 				90A5AE3F2726A61800992192 /* SceneDelegate.swift */,
@@ -537,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */,
+				90760DC12786ECB7006848A5 /* APIServiceType.swift in Sources */,
 				694E04FD277CB5400048FEE4 /* NetStatus.swift in Sources */,
 				69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */,
 				3AA8404B277E2931000C1534 /* RankCell.swift in Sources */,
@@ -546,10 +567,13 @@
 				90A5AE422726A61800992192 /* SignViewController.swift in Sources */,
 				69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */,
 				69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */,
+				90760DC32787088F006848A5 /* DuelService.swift in Sources */,
 				90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */,
 				90A5AE752727CCA900992192 /* ClientViewController.swift in Sources */,
 				90581266277C36F400E17EEE /* PaddingLabel.swift in Sources */,
 				90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */,
+				90760DC527870C41006848A5 /* StatisticsService.swift in Sources */,
+				90760DBE2786AED6006848A5 /* UserService.swift in Sources */,
 				9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */,
 				3AA84048277E1886000C1534 /* RankViewController.swift in Sources */,
 				90581262277C339100E17EEE /* Temp.swift in Sources */,
