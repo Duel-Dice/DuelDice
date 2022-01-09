@@ -7,8 +7,12 @@
 
 import Foundation
 import Alamofire
+import FirebaseAuth
 
 class NetStatus {
+    
+    var token: String?
+    
     
     func dispose(closure: (String) -> ()) {
         if Alamofire.NetworkReachabilityManager() == nil {
@@ -31,4 +35,17 @@ class NetStatus {
     func isReachable() -> Bool {
         return Alamofire.NetworkReachabilityManager()?.isReachable ?? false
     }
+    
+//    func getToken() {
+//        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: {token, error in
+//            guard error == nil else { assert(false) }
+//            guard token != nil else { assert(false) }
+//
+//            self.token = token
+////            self.me.detailData(uid: uid)
+////            self.me.detailData(token: token!)
+//        })
+//
+//
+//    }
 }

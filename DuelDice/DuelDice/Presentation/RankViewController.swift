@@ -18,7 +18,6 @@ class RankViewController: UIViewController {
         User(userId: "ycha", diceAmount: 128),
         User(userId: "echung", diceAmount: 128),
         User(userId: "kyuhkim", diceAmount: 512)
-
     ]
     
     override func viewDidLoad() {

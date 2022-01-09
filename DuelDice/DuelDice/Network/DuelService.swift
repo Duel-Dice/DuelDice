@@ -18,7 +18,7 @@ struct DuelService: APIServiceType {
                 return
             }
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             
             AF.request(url, encoding: URLEncoding.httpBody, headers: headers)
@@ -45,7 +45,7 @@ struct DuelService: APIServiceType {
                 return
             }
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             
             AF.request(url, encoding: URLEncoding.httpBody, headers: headers)
@@ -71,7 +71,7 @@ struct DuelService: APIServiceType {
                 return
             }
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             
             AF.request(url, method: .post, encoding: URLEncoding.httpBody, headers: headers)
@@ -97,7 +97,7 @@ struct DuelService: APIServiceType {
                 return
             }
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             
             AF.request(url, method: .put, encoding: URLEncoding.httpBody, headers: headers)

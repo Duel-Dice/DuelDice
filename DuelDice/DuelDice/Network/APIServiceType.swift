@@ -20,12 +20,14 @@ extension APIServiceType {
     static func validate(completion: @escaping (String?) -> ()) {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-            guard let idToken = idToken else { return }
-            if error != nil {
-                completion(nil)
-              return;
-            }
-            completion(idToken)
+//            guard let idToken = idToken else { return }
+//            guard idToken != nil else { return }
+//            if error != nil {
+//                completion(nil)
+//              return;
+//            }
+//            completion(idToken)
+            completion ((error != nil || idToken == nil ? "nil" : idToken))
         }
     }
 }

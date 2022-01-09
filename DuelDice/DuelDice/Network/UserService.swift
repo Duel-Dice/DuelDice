@@ -10,18 +10,16 @@ import Alamofire
 
 struct UserService: APIServiceType {
     
-    static func fetchUserInformation (completion: @escaping (String) -> ()) {
+    static func fetchUserInformation(completion: @escaping (String) -> ()) {
         let url = self.url("users")
         
-        self.validate { (idToken) in
-            guard let idToken = idToken else {
-                return
-            }
-            let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
-            ]
+        self.validate{ (idToken) in
+            guard let idToken = idToken else { return }
             
-            AF.request(url, encoding: URLEncoding.httpBody, headers: headers)
+            let headers: HTTPHeaders = [ "Authorization" : "Bearer test_firebase_jwt" ]
+            
+            AF
+                .request(url, encoding: URLEncoding.httpBody, headers: headers)
                 .validate(statusCode: 200..<300)
                 .responseString() { response in
                 switch response.result {
@@ -46,10 +44,11 @@ struct UserService: APIServiceType {
             }
 
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             
-            AF.request(url, encoding: URLEncoding.httpBody, headers: headers)
+            AF
+                .request(url, encoding: URLEncoding.httpBody, headers: headers)
                 .validate(statusCode: 200..<300)
                 .responseString() { response in
                 switch response.result {
@@ -97,7 +96,8 @@ struct UserService: APIServiceType {
     }
 
     static func updateUserNickname (with nickname:String, completion: @escaping (String) -> ()) {
-        let url = self.url("users/register")
+//        let url = self.url("users/register")
+        let url = self.url("users/nickname")
         
         self.validate { (idToken) in
             guard let idToken = idToken else {
@@ -105,7 +105,7 @@ struct UserService: APIServiceType {
             }
 
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             let parameters: Parameters = [
                 "nickname" : "\(nickname)"
