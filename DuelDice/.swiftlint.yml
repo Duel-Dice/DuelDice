@@ -3,7 +3,7 @@ disabled_rules:
   - type_body_length
   - line_length
   - opening_brace
-  
+
 excluded:
   - DuelDice/Application/AppDelegate.swift
   - DuelDice/Application/SceneDelegate.swift
@@ -17,11 +17,11 @@ opt_in_rules: # disable된것 중 enable 하고 싶은 것
     - first_where
     - last_where
     - toggle_bool
-  
+
 function_body_length: # default 값
   - 40 # warning
   - 50 # error
-  
+
 file_length: #default
   warning: 600
   error: 700
@@ -31,7 +31,7 @@ force_cast: error # 암시적으로 지정
 
 force_try:
   severity: error # 명시적으로 지정
-  
+
 force_unwrapping: error #강제 언래핑 에러
 
 identifier_name: #default
@@ -42,7 +42,7 @@ identifier_name: #default
     warning: 40
     error: 60
   excluded: #제외하고 싶은 변수 이름들
-    
+
 type_name: #default
   min_length:
     warning: 3
