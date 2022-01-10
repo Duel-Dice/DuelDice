@@ -46,7 +46,7 @@ struct UserService: APIServiceType {
             }
 
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
 
             AF.request(url, encoding: URLEncoding.httpBody, headers: headers)
@@ -97,7 +97,8 @@ struct UserService: APIServiceType {
     }
 
     static func updateUserNickname (with nickname:String, completion: @escaping (String) -> ()) {
-        let url = self.url("users/register")
+//        let url = self.url("users/register")
+        let url = self.url("users/nickname")
 
         self.validate { (idToken) in
             guard let idToken = idToken else {
@@ -105,7 +106,7 @@ struct UserService: APIServiceType {
             }
 
             let headers: HTTPHeaders = [
-                "firebase_jwt" : "Bearer test_firebase_jwt"
+                "Authorization" : "Bearer test_firebase_jwt"
             ]
             let parameters: Parameters = [
                 "nickname" : "\(nickname)"

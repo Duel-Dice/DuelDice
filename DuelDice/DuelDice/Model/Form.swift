@@ -8,8 +8,16 @@
 import Foundation
 
 struct User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case userId = "user_id"
+        case nickName = "nickname"
+        case diceAmount = "dice_count"
+        case highestScore = "highest_score"
+        case winCount = "win_count"
+        case loseCount = "lose_count"
+    }
+    
     var userId: String?
-    var accessToken: String?
     var nickName: String?
     var diceAmount: Int?
     var highestScore: Int?

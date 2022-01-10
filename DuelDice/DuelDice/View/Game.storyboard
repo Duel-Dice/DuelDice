@@ -82,11 +82,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="39"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="half"/>
+                                                <connections>
+                                                    <action selector="onClickHalf:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xtR-0Y-nR3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4W-nl-bJS" userLabel="full">
                                                 <rect key="frame" x="207" y="0.0" width="207" height="39"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="full"/>
+                                                <connections>
+                                                    <action selector="onClickFull:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KcR-Pa-lhP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -106,8 +112,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fullRoll" destination="o4W-nl-bJS" id="s2o-Xg-z1f"/>
-                        <outlet property="halfRoll" destination="RpJ-O0-RmK" id="dAX-sG-4U8"/>
                         <outlet property="myProgress" destination="Cy8-t0-a1C" id="wjw-KK-BtQ"/>
                         <outlet property="myScore" destination="Obc-sr-gHc" id="NQI-DC-0dc"/>
                         <outlet property="otherProgress" destination="Kx4-xH-yUs" id="rWJ-Ta-m8n"/>

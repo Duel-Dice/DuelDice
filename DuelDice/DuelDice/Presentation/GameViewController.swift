@@ -18,8 +18,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var otherProgress: UILabel!
     @IBOutlet weak var myScore: UILabel!
     @IBOutlet weak var myProgress: UILabel!
-    @IBOutlet weak var halfRoll: UIButton!
-    @IBOutlet weak var fullRoll: UIButton!
     
     var me = Player()
     let play = Play()
@@ -30,26 +28,34 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         guard netStatus.isReachable() else {
-            DEBUG_LABEL_TEXT(content: "--- [NET ERR] ---")
+            updateStatusLabelText(content: "--- [NET ERR] ---")
             return
         }
         
-        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: {token, error in
-            if error != nil { assert (false) }
-            let uid = Auth.auth().currentUser?.uid ?? ""
-            
-            self.me.detailData(uid: uid)
-            self.me.detailData(token: token!)
-        })
-
         me.attach(self)
+        me.born()
 
         timer.attach(self)
         timer.beginTimer()
 
         play.attach(self)
-        play.requestBegin()
+//        play.requestBegin()
     }
+        
+    @IBAction func onClickHalf(_ sender: Any) {
+        print("---- press half")
+        DuelService.updateDuelRoll(of: "half") { (result) in
+            print(">>>> half roll result is \(result)")
+        }
+    }
+    
+    @IBAction func onClickFull(_ sender: Any) {
+        print("---- press all")
+        DuelService.updateDuelRoll(of: "all") { (result) in
+            print(">>>> all roll result is \(result)")
+        }
+    }
+    
 }
 
 // MARK: - Status Window
@@ -69,12 +75,12 @@ extension GameViewController: IObserver {
     }
     
     func updatePlayer() {
-        guard me.detail.accessToken != nil else { return }
+//        guard me.detail.accessToken != nil else { return }
     }
     
     func updatePlay() {
         guard play.requestResult != nil else {
-            netStatus.dispose { message in DEBUG_LABEL_TEXT(content: message) }
+            netStatus.dispose { message in updateStatusLabelText(content: message) }
             return
         }
 
@@ -101,14 +107,18 @@ extension GameViewController: IObserver {
         let seconds:Int = (current / 10) % 60
         let mseconds:Int = current % 10
         let text:String = String(format:"%02d", minutes) + " : " + String(format: "%02d", seconds) + String(" : ") + String(format: "%01d", mseconds)
-        DEBUG_LABEL_TEXT(content: text)
+        updateStatusLabelText(content: text)
     }
 }
 
 
+// MARK: - DEBUG
 
 extension GameViewController {
-    func DEBUG_LABEL_TEXT(content : String) {
-        statusLabel.text = content
-    }
+    
+    func updateStatusLabelText(content: String) { statusLabel.text = content }
+//
+//    func DEBUG_LABEL_TEXT(content : String) {
+//        statusLabel.text = content
+//    }
 }
