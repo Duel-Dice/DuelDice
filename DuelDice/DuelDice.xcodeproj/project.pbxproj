@@ -20,13 +20,12 @@
 		9004C53A2758B69000F25BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9004C5392758B69000F25BCD /* GoogleService-Info.plist */; };
 		90581266277C36F400E17EEE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90581265277C36F400E17EEE /* PaddingLabel.swift */; };
 		9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058126A277C384100E17EEE /* CGFloat+Extension.swift */; };
-		90760DCF2787E815006848A5 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DCE2787E815006848A5 /* UserUseCase.swift */; };
-		90760DD32787E897006848A5 /* Challenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DD22787E897006848A5 /* Challenger.swift */; };
 		90760DBE2786AED6006848A5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DBD2786AED6006848A5 /* UserService.swift */; };
 		90760DC12786ECB7006848A5 /* APIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC02786ECB7006848A5 /* APIServiceType.swift */; };
 		90760DC32787088F006848A5 /* DuelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC22787088F006848A5 /* DuelService.swift */; };
 		90760DC527870C41006848A5 /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC427870C41006848A5 /* StatisticsService.swift */; };
 		90760DC827870D8D006848A5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 90760DC727870D8D006848A5 /* .swiftlint.yml */; };
+		90760DCF2787E815006848A5 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DCE2787E815006848A5 /* UserUseCase.swift */; };
 		90A5787F272DD6B900BD2860 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A5787E272DD6B900BD2860 /* Game.storyboard */; };
 		90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE3D2726A61800992192 /* AppDelegate.swift */; };
 		90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE3F2726A61800992192 /* SceneDelegate.swift */; };
@@ -82,13 +81,12 @@
 		9004C5392758B69000F25BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90581265277C36F400E17EEE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9058126A277C384100E17EEE /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
-		90760DCE2787E815006848A5 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
-		90760DD22787E897006848A5 /* Challenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenger.swift; sourceTree = "<group>"; };
 		90760DBD2786AED6006848A5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		90760DC02786ECB7006848A5 /* APIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceType.swift; sourceTree = "<group>"; };
 		90760DC22787088F006848A5 /* DuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelService.swift; sourceTree = "<group>"; };
 		90760DC427870C41006848A5 /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
 		90760DC727870D8D006848A5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		90760DCE2787E815006848A5 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		90A5787E272DD6B900BD2860 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		90A5AE3A2726A61800992192 /* DuelDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuelDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A5AE3D2726A61800992192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +194,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		90760DBC2786AEC6006848A5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				90760DC02786ECB7006848A5 /* APIServiceType.swift */,
+				90760DBD2786AED6006848A5 /* UserService.swift */,
+				90760DC22787088F006848A5 /* DuelService.swift */,
+				90760DC427870C41006848A5 /* StatisticsService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		90760DC92787E5AF006848A5 /* GameWaitingRoom */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,7 +243,6 @@
 		90760DCD2787E7F3006848A5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				90760DD12787E853006848A5 /* Entities */,
 				90760DD02787E81B006848A5 /* UseCases */,
 			);
 			path = Domain;
@@ -246,24 +254,6 @@
 				90760DCE2787E815006848A5 /* UserUseCase.swift */,
 			);
 			path = UseCases;
-			sourceTree = "<group>";
-		};
-		90760DD12787E853006848A5 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				90760DD22787E897006848A5 /* Challenger.swift */,
-			);
-			path = Entities;
-		};
-		90760DBC2786AEC6006848A5 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				90760DC02786ECB7006848A5 /* APIServiceType.swift */,
-				90760DBD2786AED6006848A5 /* UserService.swift */,
-				90760DC22787088F006848A5 /* DuelService.swift */,
-				90760DC427870C41006848A5 /* StatisticsService.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		90A5AE312726A61800992192 = {
@@ -645,7 +635,6 @@
 				69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */,
 				694E04FF277CBA690048FEE4 /* Timer.swift in Sources */,
 				90A5AE722727C31B00992192 /* Player.swift in Sources */,
-				90760DD32787E897006848A5 /* Challenger.swift in Sources */,
 				90A5AE422726A61800992192 /* SignViewController.swift in Sources */,
 				69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */,
 				69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */,
