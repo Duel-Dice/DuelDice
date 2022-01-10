@@ -18,9 +18,10 @@
 		69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9E9275E7E6E009D5F1A /* Play.swift */; };
 		69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DCB9EE275EA936009D5F1A /* Interface.swift */; };
 		9004C53A2758B69000F25BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9004C5392758B69000F25BCD /* GoogleService-Info.plist */; };
-		90581262277C339100E17EEE /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90581261277C339100E17EEE /* Temp.swift */; };
 		90581266277C36F400E17EEE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90581265277C36F400E17EEE /* PaddingLabel.swift */; };
 		9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058126A277C384100E17EEE /* CGFloat+Extension.swift */; };
+		90760DCF2787E815006848A5 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DCE2787E815006848A5 /* UserUseCase.swift */; };
+		90760DD32787E897006848A5 /* Challenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DD22787E897006848A5 /* Challenger.swift */; };
 		90760DBE2786AED6006848A5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DBD2786AED6006848A5 /* UserService.swift */; };
 		90760DC12786ECB7006848A5 /* APIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC02786ECB7006848A5 /* APIServiceType.swift */; };
 		90760DC32787088F006848A5 /* DuelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90760DC22787088F006848A5 /* DuelService.swift */; };
@@ -37,7 +38,7 @@
 		90A5AE5F2726A61900992192 /* DuelDiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE5E2726A61900992192 /* DuelDiceUITests.swift */; };
 		90A5AE612726A61900992192 /* DuelDiceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE602726A61900992192 /* DuelDiceUITestsLaunchTests.swift */; };
 		90A5AE722727C31B00992192 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE712727C31B00992192 /* Player.swift */; };
-		90A5AE752727CCA900992192 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE742727CCA900992192 /* ClientViewController.swift */; };
+		90A5AE752727CCA900992192 /* GameWaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE742727CCA900992192 /* GameWaitingRoomViewController.swift */; };
 		90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE762727CE0D00992192 /* GameViewController.swift */; };
 		90A5AE792727CF4300992192 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A5AE782727CF4300992192 /* Client.storyboard */; };
 		96612805467380414B81AB1E /* Pods_DuelDice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885C5B631E2EF0D924790A86 /* Pods_DuelDice.framework */; };
@@ -79,9 +80,10 @@
 		885C5B631E2EF0D924790A86 /* Pods_DuelDice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DD25B4DAD61B22F8098FA8 /* Pods-DuelDice-DuelDiceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice-DuelDiceUITests.release.xcconfig"; path = "Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9004C5392758B69000F25BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		90581261277C339100E17EEE /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		90581265277C36F400E17EEE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9058126A277C384100E17EEE /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		90760DCE2787E815006848A5 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		90760DD22787E897006848A5 /* Challenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenger.swift; sourceTree = "<group>"; };
 		90760DBD2786AED6006848A5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		90760DC02786ECB7006848A5 /* APIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceType.swift; sourceTree = "<group>"; };
 		90760DC22787088F006848A5 /* DuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelService.swift; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		90A5AE5E2726A61900992192 /* DuelDiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDiceUITests.swift; sourceTree = "<group>"; };
 		90A5AE602726A61900992192 /* DuelDiceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDiceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		90A5AE712727C31B00992192 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		90A5AE742727CCA900992192 /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
+		90A5AE742727CCA900992192 /* GameWaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWaitingRoomViewController.swift; sourceTree = "<group>"; };
 		90A5AE762727CE0D00992192 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		90A5AE782727CF4300992192 /* Client.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
 		DB008A9D76F0473ADDB21DCE /* Pods_DuelDiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 		90581267277C380A00E17EEE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				90760DCC2787E6B4006848A5 /* Label */,
 				90581269277C381D00E17EEE /* View */,
 				90581268277C381900E17EEE /* Extension */,
 			);
@@ -188,10 +191,69 @@
 		90581269277C381D00E17EEE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90581265277C36F400E17EEE /* PaddingLabel.swift */,
+				3AA84049277E2931000C1534 /* RankCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
+		};
+		90760DC92787E5AF006848A5 /* GameWaitingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				90A5AE742727CCA900992192 /* GameWaitingRoomViewController.swift */,
+			);
+			path = GameWaitingRoom;
+			sourceTree = "<group>";
+		};
+		90760DCA2787E5F5006848A5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				90A5AE3D2726A61800992192 /* AppDelegate.swift */,
+				90A5AE3F2726A61800992192 /* SceneDelegate.swift */,
+				90A5AE462726A61900992192 /* Assets.xcassets */,
+				90A5AE482726A61900992192 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		90760DCB2787E6A3006848A5 /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				3AA84047277E1886000C1534 /* RankViewController.swift */,
+			);
+			path = Rank;
+			sourceTree = "<group>";
+		};
+		90760DCC2787E6B4006848A5 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				90581265277C36F400E17EEE /* PaddingLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		90760DCD2787E7F3006848A5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				90760DD12787E853006848A5 /* Entities */,
+				90760DD02787E81B006848A5 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		90760DD02787E81B006848A5 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				90760DCE2787E815006848A5 /* UserUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		90760DD12787E853006848A5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				90760DD22787E897006848A5 /* Challenger.swift */,
+			);
+			path = Entities;
 		};
 		90760DBC2786AEC6006848A5 /* Network */ = {
 			isa = PBXGroup;
@@ -232,13 +294,11 @@
 			children = (
 				90760DBC2786AEC6006848A5 /* Network */,
 				69DCB9ED275EA921009D5F1A /* Interface */,
-				90A5AE3D2726A61800992192 /* AppDelegate.swift */,
-				90A5AE3F2726A61800992192 /* SceneDelegate.swift */,
 				90A5AE732727C31E00992192 /* Model */,
+				90760DCD2787E7F3006848A5 /* Domain */,
 				90A5AE702727C30000992192 /* Presentation */,
 				90A5AE6E2727C2ED00992192 /* View */,
-				90A5AE462726A61900992192 /* Assets.xcassets */,
-				90A5AE482726A61900992192 /* LaunchScreen.storyboard */,
+				90760DCA2787E5F5006848A5 /* Application */,
 				9004C5392758B69000F25BCD /* GoogleService-Info.plist */,
 				90A5AE4B2726A61900992192 /* Info.plist */,
 			);
@@ -278,10 +338,8 @@
 			children = (
 				90581267277C380A00E17EEE /* Common */,
 				90581263277C36CB00E17EEE /* SignIn */,
-				90581261277C339100E17EEE /* Temp.swift */,
-				90A5AE742727CCA900992192 /* ClientViewController.swift */,
-				3AA84047277E1886000C1534 /* RankViewController.swift */,
-				3AA84049277E2931000C1534 /* RankCell.swift */,
+				90760DC92787E5AF006848A5 /* GameWaitingRoom */,
+				90760DCB2787E6A3006848A5 /* Rank */,
 				90A5AE762727CE0D00992192 /* GameViewController.swift */,
 			);
 			path = Presentation;
@@ -581,24 +639,25 @@
 				90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */,
 				90760DC12786ECB7006848A5 /* APIServiceType.swift in Sources */,
 				694E04FD277CB5400048FEE4 /* NetStatus.swift in Sources */,
+				90760DCF2787E815006848A5 /* UserUseCase.swift in Sources */,
 				69DA4E5027610C1E00D8D80B /* Defines.swift in Sources */,
 				3AA8404B277E2931000C1534 /* RankCell.swift in Sources */,
 				69DCB9EF275EA936009D5F1A /* Interface.swift in Sources */,
 				694E04FF277CBA690048FEE4 /* Timer.swift in Sources */,
 				90A5AE722727C31B00992192 /* Player.swift in Sources */,
+				90760DD32787E897006848A5 /* Challenger.swift in Sources */,
 				90A5AE422726A61800992192 /* SignViewController.swift in Sources */,
 				69DCB9EA275E7E6E009D5F1A /* Play.swift in Sources */,
 				69DCB9E8275E7E51009D5F1A /* Form.swift in Sources */,
 				90760DC32787088F006848A5 /* DuelService.swift in Sources */,
 				90A5AE3E2726A61800992192 /* AppDelegate.swift in Sources */,
-				90A5AE752727CCA900992192 /* ClientViewController.swift in Sources */,
+				90A5AE752727CCA900992192 /* GameWaitingRoomViewController.swift in Sources */,
 				90581266277C36F400E17EEE /* PaddingLabel.swift in Sources */,
 				90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */,
 				90760DC527870C41006848A5 /* StatisticsService.swift in Sources */,
 				90760DBE2786AED6006848A5 /* UserService.swift in Sources */,
 				9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */,
 				3AA84048277E1886000C1534 /* RankViewController.swift in Sources */,
-				90581262277C339100E17EEE /* Temp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

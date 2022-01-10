@@ -64,10 +64,13 @@ struct UserService: APIServiceType {
         }
     }
     
+<<<<<<< HEAD
+=======
 //    {
 //        "firebase_jwt": "{firebase jwt}”,
 //        "nickname": "{닉네임}"
 //    }
+>>>>>>> main
     static func createUserAccount (with nickname:String, completion: @escaping (String) -> ()) {
         let url = self.url("users/register")
         
