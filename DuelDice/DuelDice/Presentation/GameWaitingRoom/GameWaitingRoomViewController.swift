@@ -75,6 +75,7 @@ final class GameWaitingRoomViewController: UIViewController {
     }
     
     @IBAction func delUserButtonTabbed(_ sender: Any) {
+<<<<<<< HEAD:DuelDice/DuelDice/Presentation/GameWaitingRoom/GameWaitingRoomViewController.swift
         let user = Auth.auth().currentUser
          
         user?.delete { error in
@@ -85,5 +86,49 @@ final class GameWaitingRoomViewController: UIViewController {
                 
             }
         }
+=======
+        let user:String = "Hi"
+//        let user = Auth.auth().currentUser
+//
+//        user?.delete { error in
+//          if let error = error {
+//            print("User delete error: \(error)")
+//          } else {
+//            print("User Account Deleted!")
+//          }
+//        }
+         UserService.fetchUserInformation {(text) in
+             print(user + text)
+        }
+//        func post(with idToken: String) {
+//            let apiURL = "https://skyrich3.synology.me:7780/dueldice/dev/api/auth/login"
+//            let param: Parameters = [
+//                "firebase_jwt": idToken
+//                ]
+//
+//            print()
+//            AF.request(apiURL, method: .post, parameters: param, encoding: URLEncoding.httpBody) .validate(statusCode: 200..<300).responseString() { response in
+//                switch response.result {
+//                case .success:
+//                    print("success")
+//
+//                case .failure(let error):
+//                    print(error)
+//                    return
+//                }
+//            }
+//        }
+//
+//        let currentUser = Auth.auth().currentUser
+//        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+//            guard let idToken = idToken else { return }
+//            if let error = error {
+//              // Handle error
+//              return;
+//            }
+//            post(with: idToken)
+//        }
+
+>>>>>>> main:DuelDice/DuelDice/Presentation/ClientViewController.swift
     }
 }

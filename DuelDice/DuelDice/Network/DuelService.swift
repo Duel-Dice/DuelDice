@@ -1,5 +1,5 @@
 //
-//  Network.swift
+//  DuelService.swift
 //  DuelDice
 //
 //  Created by su on 2022/01/06.
@@ -8,10 +8,10 @@
 import Foundation
 import Alamofire
 
-struct UserService: APIServiceType {
+struct DuelService: APIServiceType {
     
-    static func fetchUserInformation (completion: @escaping (String) -> ()) {
-        let url = self.url("users")
+    static func fetchDuelInformation (completion: @escaping (String) -> ()) {
+        let url = self.url("duels")
         
         self.validate { (idToken) in
             guard let idToken = idToken else {
@@ -36,15 +36,14 @@ struct UserService: APIServiceType {
         }
     }
     
-    static func fetchSpecificUserInformation (completion: @escaping (String) -> ()) {
-        let userid = "a4895a84-072b-4e87-82be-f47e16c214a2"
-        let url = self.url("users/\(userid)")
+    
+    static func fetchDuelInformation (by duelId: String, completion: @escaping (String) -> ()) {
+        let url = self.url("duels/\(duelId)")
         
         self.validate { (idToken) in
             guard let idToken = idToken else {
                 return
             }
-
             let headers: HTTPHeaders = [
                 "firebase_jwt" : "Bearer test_firebase_jwt"
             ]
@@ -64,57 +63,18 @@ struct UserService: APIServiceType {
         }
     }
     
-<<<<<<< HEAD
-=======
-//    {
-//        "firebase_jwt": "{firebase jwt}”,
-//        "nickname": "{닉네임}"
-//    }
->>>>>>> main
-    static func createUserAccount (with nickname:String, completion: @escaping (String) -> ()) {
-        let url = self.url("users/register")
+    static func createDuel (completion: @escaping (String) -> ()) {
+        let url = self.url("duels/start")
         
         self.validate { (idToken) in
             guard let idToken = idToken else {
                 return
             }
-
-            let parameters: Parameters = [
-                "firebase_jwt" : "test_firebase_jwt",
-                "nickname" : "\(nickname)"
-            ]
-            
-            AF.request(url,method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
-                .validate(statusCode: 200..<300)
-                .responseString() { response in
-                switch response.result {
-                case .success:
-                    completion("hello")
-                case .failure(let error):
-                    completion("nn")
-                    print(error)
-                    return
-                }
-            }
-        }
-    }
-
-    static func updateUserNickname (with nickname:String, completion: @escaping (String) -> ()) {
-        let url = self.url("users/register")
-        
-        self.validate { (idToken) in
-            guard let idToken = idToken else {
-                return
-            }
-
             let headers: HTTPHeaders = [
                 "firebase_jwt" : "Bearer test_firebase_jwt"
             ]
-            let parameters: Parameters = [
-                "nickname" : "\(nickname)"
-            ]
             
-            AF.request(url,method: .put, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers)
+            AF.request(url, method: .post, encoding: URLEncoding.httpBody, headers: headers)
                 .validate(statusCode: 200..<300)
                 .responseString() { response in
                 switch response.result {
@@ -129,4 +89,30 @@ struct UserService: APIServiceType {
         }
     }
     
+    static func updateDuelRoll(of dicecount: String, completion: @escaping (String) -> ()) {
+        let url = self.url("duels/roll/\(dicecount)")
+        
+        self.validate { (idToken) in
+            guard let idToken = idToken else {
+                return
+            }
+            let headers: HTTPHeaders = [
+                "firebase_jwt" : "Bearer test_firebase_jwt"
+            ]
+            
+            AF.request(url, method: .put, encoding: URLEncoding.httpBody, headers: headers)
+                .validate(statusCode: 200..<300)
+                .responseString() { response in
+                switch response.result {
+                case .success:
+                    completion("hello")
+                case .failure(let error):
+                    completion("nn")
+                    print(error)
+                    return
+                }
+            }
+        }
+    }
+   
 }
