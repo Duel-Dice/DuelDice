@@ -5,10 +5,8 @@
 //  Created by kyuhkim on 2021/12/07.
 //
 
-import Foundation
+import UIKit
 import Alamofire
-
-
 
 class Play: IObserved {
     static var requestEnable = true
@@ -21,7 +19,7 @@ class Play: IObserved {
 
     func requestBegin() {
         if Play.requestEnable {
-            loop = Timer.scheduledTimer(timeInterval: NETWORK_REQUEST_INTERVAL, target: self,
+            loop = Timer.scheduledTimer(timeInterval: CGFloat.networkRequestInterval, target: self,
                 selector: #selector(networkRequest), userInfo: nil, repeats: true)
             Play.requestEnable = false
         }
@@ -60,7 +58,7 @@ class Play: IObserved {
     
     func isTimeout() -> Bool {
         Play.requestCount += 1
-        return NETWORK_REQUEST_TIMEOUT <= Play.requestCount
+        return CGFloat.networkRequestTimeout <= Double(Play.requestCount)
     }
     
     func isOnline() -> Bool {
@@ -104,10 +102,10 @@ extension Play {
     }
 
     func TEST_RANDOM_RANGE_ARRAY(times: Int) -> [Int] {
-        var array = Array(repeating: 0, count: DICE_FACE_COUNT)
+        var array = Array(repeating: 0, count: .diceFaceCount)
         
         for _ in 0..<times {
-            let dice = Int.random(in: 0..<DICE_FACE_COUNT)
+            let dice = Int.random(in: 0..<Int.diceFaceCount)
             array[dice] += 1
         }
         

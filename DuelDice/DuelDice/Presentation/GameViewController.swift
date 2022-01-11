@@ -96,7 +96,7 @@ extension GameViewController: IObserver {
     }
     
     func updateTimer() {
-        let current: Int = timer.finish ? 0 : Int(DICE_TIMER_TIMEOUT * 10) - Int(floor(timer.time * 10))
+        let current: Int = timer.finish ? 0 : Int(CGFloat.diceTimerTimeout * 10) - Int(floor(timer.time * 10))
         
         if current == 0 {
             timer.endTimer()

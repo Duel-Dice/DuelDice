@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 class SessionAlive: IObserved {
     var timer = Timer()
     lazy var observerArray = [IObserver]()
-    var time = DICE_TIMER_TIMEOUT
+    var time:Int = .diceFaceCount
     var beginTime = Date().timeIntervalSinceReferenceDate
     var finish = false
 
     func beginTimer() {
-        timer = Timer.scheduledTimer(timeInterval: NETWORK_REQUEST_INTERVAL, target: self, selector: #selector(tic), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: CGFloat.networkRequestInterval, target: self, selector: #selector(tic), userInfo: nil, repeats: true)
     }
     
     func endTimer() {
