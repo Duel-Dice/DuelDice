@@ -42,6 +42,7 @@
 		90A5AE752727CCA900992192 /* GameWaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE742727CCA900992192 /* GameWaitingRoomViewController.swift */; };
 		90A5AE772727CE0D00992192 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5AE762727CE0D00992192 /* GameViewController.swift */; };
 		90A5AE792727CF4300992192 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A5AE782727CF4300992192 /* Client.storyboard */; };
+		90B068BC27C89D9C0085B608 /* Array+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B068BB27C89D9C0085B608 /* Array+Extention.swift */; };
 		96612805467380414B81AB1E /* Pods_DuelDice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885C5B631E2EF0D924790A86 /* Pods_DuelDice.framework */; };
 		9773A98CC727B380355F35F0 /* Pods_DuelDice_DuelDiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1551374CD94B94D5D790F64 /* Pods_DuelDice_DuelDiceUITests.framework */; };
 		D575E277766DB8ED1A65DF5A /* Pods_DuelDiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB008A9D76F0473ADDB21DCE /* Pods_DuelDiceTests.framework */; };
@@ -109,6 +110,7 @@
 		90A5AE742727CCA900992192 /* GameWaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWaitingRoomViewController.swift; sourceTree = "<group>"; };
 		90A5AE762727CE0D00992192 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		90A5AE782727CF4300992192 /* Client.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
+		90B068BB27C89D9C0085B608 /* Array+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extention.swift"; sourceTree = "<group>"; };
 		DB008A9D76F0473ADDB21DCE /* Pods_DuelDiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1551374CD94B94D5D790F64 /* Pods_DuelDice_DuelDiceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuelDice_DuelDiceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DDE9CCD17CEF169986ECF3 /* Pods-DuelDice-DuelDiceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuelDice-DuelDiceUITests.debug.xcconfig"; path = "Target Support Files/Pods-DuelDice-DuelDiceUITests/Pods-DuelDice-DuelDiceUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				9058126A277C384100E17EEE /* CGFloat+Extension.swift */,
 				90797F43278C42A9009E1617 /* UIImage+Extension.swift */,
 				90797F41278C41EF009E1617 /* Int+Extention.swift */,
+				90B068BB27C89D9C0085B608 /* Array+Extention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				90A5AE402726A61800992192 /* SceneDelegate.swift in Sources */,
 				90760DC527870C41006848A5 /* StatisticsService.swift in Sources */,
 				90760DBE2786AED6006848A5 /* UserService.swift in Sources */,
+				90B068BC27C89D9C0085B608 /* Array+Extention.swift in Sources */,
 				9058126B277C384100E17EEE /* CGFloat+Extension.swift in Sources */,
 				3AA84048277E1886000C1534 /* RankViewController.swift in Sources */,
 			);

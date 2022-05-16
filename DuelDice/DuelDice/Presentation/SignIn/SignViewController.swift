@@ -51,6 +51,11 @@ final class SignViewController: UIViewController {
         self.configureSignInButton()
         self.configureTitleLabel()
         self.configureImageView()
+        test(with: .)
+    }
+    
+    private func test(with strArr: String[]) {
+        print(strArr)
     }
     
     private func configureSignInButton() {
